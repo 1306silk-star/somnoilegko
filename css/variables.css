@@ -1,0 +1,90 @@
+/**
+ * Дизайн-система «Со_мной_легко»
+ * Направление: тёплый технологичный минимализм
+ */
+
+:root {
+  /* ── Цвета ── */
+  --color-bg: #f7f4ef;
+  --color-bg-alt: #e8ede4;
+  --color-surface: #ffffff;
+  --color-primary: #1e4d3a;
+  --color-primary-hover: #163a2c;
+  --color-primary-soft: rgba(30, 77, 58, 0.08);
+  --color-accent: #d4726a;
+  --color-accent-hover: #c46159;
+  --color-accent-soft: rgba(212, 114, 106, 0.12);
+  --color-text: #2a2a2a;
+  --color-text-muted: #5c5c5c;
+  --color-text-inverse: #ffffff;
+  --color-border: rgba(42, 42, 42, 0.1);
+  --color-border-strong: rgba(30, 77, 58, 0.2);
+
+  /* ── Типографика ── */
+  --font-display: "Literata", "Georgia", serif;
+  --font-body: "Golos Text", "Segoe UI", sans-serif;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: clamp(1.5rem, 3.5vw, 2rem);
+  --text-3xl: clamp(1.75rem, 4.5vw, 2.75rem);
+  --text-hero: clamp(1.875rem, 5vw, 3.125rem);
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.7;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* ── Отступы ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ── Layout ── */
+  --container-max: 72rem;
+  --container-padding: clamp(1rem, 4vw, 2rem);
+  --header-height: 4.5rem;
+
+  /* ── Скругления ── */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 9999px;
+
+  /* ── Тени ── */
+  --shadow-sm: 0 1px 3px rgba(42, 42, 42, 0.06);
+  --shadow-md: 0 4px 16px rgba(42, 42, 42, 0.08);
+  --shadow-lg: 0 8px 32px rgba(42, 42, 42, 0.1);
+  --shadow-photo: 0 12px 40px rgba(30, 77, 58, 0.12);
+
+  /* ─️ Переходы ── */
+  --transition-fast: 150ms ease;
+  --transition-base: 220ms ease;
+  --transition-slow: 350ms ease;
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ── Z-index ── */
+  --z-header: 100;
+  --z-menu: 200;
+  --z-overlay: 150;
+
+  /* ── Breakpoints (для reference в media queries) ── */
+  /* sm: 480px | md: 768px | lg: 1024px | xl: 1280px */
+}

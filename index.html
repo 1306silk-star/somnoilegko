@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Со_мной_легко — Ирина Андреева · AI для работы и жизни</title>
+    <meta
+      name="description"
+      content="Помогаю разобраться, какие задачи можно передать AI, подобрать понятные инструменты и научиться ими пользоваться — спокойно, без сложных терминов."
+    />
+
+    <!-- Open Graph / Telegram / соцсети -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:title" content="Со_мной_легко — Ирина Андреева · AI для работы и жизни" />
+    <meta
+      property="og:description"
+      content="Освободите время от рутинных задач с помощью искусственного интеллекта. Спокойно, понятно и пошагово."
+    />
+    <meta property="og:image" content="assets/images/about/about.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Со_мной_легко" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Со_мной_легко — Ирина Андреева · AI для работы и жизни" />
+    <meta
+      name="twitter:description"
+      content="Помогаю использовать AI в работе и жизни — спокойно, без сложных терминов."
+    />
+    <meta name="twitter:image" content="assets/images/about/about.jpg" />
+
+    <!-- Будущая английская версия: <link rel="alternate" hreflang="en" href="/en/" /> -->
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/effects.css" />
+    <link rel="stylesheet" href="css/components/sections.css" />
+    <link rel="stylesheet" href="css/components/motif.css" />
+    <link rel="stylesheet" href="css/components/header.css" />
+    <link rel="stylesheet" href="css/components/hero.css" />
+    <link rel="stylesheet" href="css/components/tasks.css" />
+    <link rel="stylesheet" href="css/components/routes.css" />
+    <link rel="stylesheet" href="css/components/projects.css" />
+    <link rel="stylesheet" href="css/components/process.css" />
+    <link rel="stylesheet" href="css/components/about.css" />
+    <link rel="stylesheet" href="css/components/results.css" />
+    <link rel="stylesheet" href="css/components/roadmap.css" />
+    <link rel="stylesheet" href="css/components/faq.css" />
+    <link rel="stylesheet" href="css/components/cta.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+  </head>
+
+  <body>
+    <a class="sr-only sr-only-focusable" href="#main">Перейти к содержимому</a>
+
+    <!-- ШАПКА -->
+    <header class="site-header" role="banner">
+      <div class="container site-header__inner">
+        <a class="site-logo" href="#top" aria-label="Со_мной_легко — на главную">
+          Со<span class="site-logo__underscore">_</span>мной_легко
+        </a>
+
+        <nav class="site-nav" aria-label="Основная навигация">
+          <a class="site-nav__link" href="#tasks" data-nav-link>Задачи</a>
+          <a class="site-nav__link" href="#tools" data-nav-link>Инструменты</a>
+          <a class="site-nav__link" href="#projects" data-nav-link>Проекты</a>
+          <a class="site-nav__link" href="#about" data-nav-link>Обо мне</a>
+          <a class="site-nav__link" href="#faq" data-nav-link>FAQ</a>
+          <a class="site-nav__link" href="#contacts" data-nav-link>Контакты</a>
+        </nav>
+
+        <div class="site-header__actions">
+          <a
+            class="btn btn--primary site-header__cta btn--shine"
+            data-magnetic
+            href="https://t.me/somnoi_legko"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Записаться на бесплатную консультацию
+          </a>
+        </div>
+
+        <button
+          class="burger"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-menu__overlay" aria-hidden="true"></div>
+
+    <nav
+      id="mobile-menu"
+      class="mobile-menu"
+      aria-label="Мобильная навигация"
+      aria-hidden="true"
+    >
+      <div class="mobile-menu__nav">
+        <a class="mobile-menu__link" href="#tasks" data-nav-link>Задачи</a>
+        <a class="mobile-menu__link" href="#tools" data-nav-link>Инструменты</a>
+        <a class="mobile-menu__link" href="#projects" data-nav-link>Проекты</a>
+        <a class="mobile-menu__link" href="#about" data-nav-link>Обо мне</a>
+        <a class="mobile-menu__link" href="#faq" data-nav-link>FAQ</a>
+        <a class="mobile-menu__link" href="#contacts" data-nav-link>Контакты</a>
+      </div>
+      <a
+        class="btn btn--primary btn--lg mobile-menu__cta"
+        href="https://t.me/somnoi_legko"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Записаться на бесплатную консультацию
+      </a>
+    </nav>
+
+    <main id="main" class="page-content">
+
+      <!-- HERO -->
+      <section class="hero section" id="top" aria-labelledby="hero-title">
+        <div class="hero__mesh-wrap" aria-hidden="true">
+          <canvas id="hero-mesh"></canvas>
+        </div>
+        <div class="container">
+          <div class="hero__grid">
+            <div class="hero__content">
+              <p class="eyebrow hero__eyebrow">
+                <span class="hero__eyebrow-name">Ирина Андреева</span>
+                <span class="hero__eyebrow-sep" aria-hidden="true">·</span>
+                <span>AI для работы и жизни</span>
+              </p>
+
+              <h1 class="hero__title" id="hero-title">
+                <span class="hero__title-line">
+                  <span class="hero__title-line-inner"><span class="hero__title-accent">Освободите время</span></span>
+                </span>
+                <span class="hero__title-line">
+                  <span class="hero__title-line-inner">от рутинных задач с&nbsp;помощью</span>
+                </span>
+                <span class="hero__title-line">
+                  <span class="hero__title-line-inner">искусственного интеллекта</span>
+                </span>
+              </h1>
+
+              <p class="hero__subtitle">
+                Помогаю разобраться, какие задачи можно передать AI, подобрать понятные инструменты и&nbsp;научиться ими пользоваться&nbsp;— спокойно, без сложных терминов и&nbsp;перегрузки.
+              </p>
+
+              <ul class="hero__pillars" aria-label="Ключевые направления">
+                <li class="hero__pillar hero__pillar--primary">Для работы</li>
+                <li class="hero__pillar">Для жизни</li>
+                <li class="hero__pillar">Понятно и пошагово</li>
+                <li class="hero__pillar">Реальные инструменты</li>
+              </ul>
+
+              <div class="hero__actions">
+                <div class="hero__actions-primary">
+                  <a
+                    class="btn btn--primary btn--lg btn--shine"
+                    data-magnetic
+                    href="https://t.me/somnoi_legko"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Записаться на бесплатную консультацию
+                  </a>
+                </div>
+                <div class="hero__actions-secondary">
+                  <a class="btn btn--ghost" href="#tasks" data-nav-link>
+                    Посмотреть, какие задачи можно решить
+                  </a>
+                  <a class="btn btn--ghost" href="#tools" data-nav-link>
+                    Открыть бесплатные инструменты
+                  </a>
+                  <a class="btn btn--ghost" href="#projects" data-nav-link>
+                    Посмотреть проекты
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero__visual">
+              <div class="hero__editorial">
+                <span class="hero__photo-ring" aria-hidden="true"></span>
+                <img
+                  class="hero__photo"
+                  src="assets/images/about/about.jpg"
+                  alt="Ирина Андреева с букетом тюльпанов — специалист по применению AI в работе и жизни"
+                  width="900"
+                  height="1125"
+                  fetchpriority="high"
+                />
+                <span class="hero__label-float">Со_мной_легко</span>
+                <svg class="hero__motif brand-motif" viewBox="0 0 48 24" aria-hidden="true">
+                  <path class="motif-stroke" d="M4 20 Q24 2 44 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ЗНАКОМО? + ЧТО МОЖНО УПРОСТИТЬ -->
+      <section class="section recognize" id="tasks" aria-labelledby="tasks-title">
+        <div class="container">
+          <div class="recognize__grid reveal-clip">
+            <div class="recognize__intro">
+              <div class="section-divider"></div>
+              <h2 class="recognize__title" id="tasks-title">
+                Задачи копятся, а&nbsp;разобраться с&nbsp;AI всё некогда?
+              </h2>
+              <p class="recognize__conclusion">
+                Необязательно становиться программистом.<br />
+                Важно понять, какую задачу вы&nbsp;хотите решить.
+              </p>
+            </div>
+
+            <ul class="recognize__list">
+              <li class="recognize__item reveal reveal--delay-1">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-mail"/></svg></span>
+                <span>Нужно написать письмо или ответ клиенту</span>
+              </li>
+              <li class="recognize__item reveal reveal--delay-1">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-bulb"/></svg></span>
+                <span>Регулярно заканчиваются идеи для публикаций</span>
+              </li>
+              <li class="recognize__item reveal reveal--delay-2">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-list"/></svg></span>
+                <span>Трудно структурировать документы и заметки</span>
+              </li>
+              <li class="recognize__item reveal reveal--delay-2">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-pen"/></svg></span>
+                <span>Хочется быстрее подготовить описание услуги</span>
+              </li>
+              <li class="recognize__item reveal reveal--delay-3">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-plane"/></svg></span>
+                <span>Нужно распланировать поездку</span>
+              </li>
+              <li class="recognize__item reveal reveal--delay-3">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-wallet"/></svg></span>
+                <span>Хочется вести личный бюджет</span>
+              </li>
+              <li class="recognize__item reveal reveal--delay-3">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-globe"/></svg></span>
+                <span>Нужно изучать иностранный язык</span>
+              </li>
+              <li class="recognize__item reveal reveal--delay-3">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-search"/></svg></span>
+                <span>Сложно выбрать подходящий AI-инструмент</span>
+              </li>
+              <li class="recognize__item reveal reveal--delay-3">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-chat"/></svg></span>
+                <span>ChatGPT отвечает не так, как ожидалось</span>
+              </li>
+              <li class="recognize__item reveal reveal--delay-3">
+                <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-help"/></svg></span>
+                <span>Новые технологии вызывают растерянность</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="simplify reveal">
+            <header class="section-header section-header--center section-header--wide">
+              <p class="section-header__label">Что можно упростить</p>
+              <h3 class="section-header__title">Две области, где AI действительно помогает</h3>
+            </header>
+
+            <div class="simplify__zones">
+              <article class="simplify__zone simplify__zone--work reveal">
+                <div class="simplify__zone-header">
+                  <span class="simplify__zone-icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-briefcase"/></svg></span>
+                  <h4 class="simplify__zone-title">Для работы</h4>
+                </div>
+                <div class="simplify__tasks">
+                  <span class="simplify__task">Письма и ответы клиентам</span>
+                  <span class="simplify__task">Идеи и черновики публикаций</span>
+                  <span class="simplify__task">Контент-планы</span>
+                  <span class="simplify__task">Описания товаров и услуг</span>
+                  <span class="simplify__task">Презентации и предложения</span>
+                  <span class="simplify__task">Анализ длинных документов</span>
+                  <span class="simplify__task">Инструкции и чек-листы</span>
+                  <span class="simplify__task">Подготовка к встречам</span>
+                  <span class="simplify__task">Структурирование информации</span>
+                  <span class="simplify__task">Простые сайты и мини-сервисы</span>
+                </div>
+                <a class="btn btn--secondary simplify__zone-action" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                  Хочу упростить рабочую задачу
+                </a>
+              </article>
+
+              <article class="simplify__zone simplify__zone--life reveal reveal--delay-1">
+                <div class="simplify__zone-header">
+                  <span class="simplify__zone-icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-home"/></svg></span>
+                  <h4 class="simplify__zone-title">Для жизни</h4>
+                </div>
+                <div class="simplify__tasks">
+                  <span class="simplify__task">Личный и семейный бюджет</span>
+                  <span class="simplify__task">Планирование поездок</span>
+                  <span class="simplify__task">Изучение иностранных языков</span>
+                  <span class="simplify__task">Составление обращений и писем</span>
+                  <span class="simplify__task">Сравнение вариантов</span>
+                  <span class="simplify__task">Организация личных документов</span>
+                  <span class="simplify__task">Планы и списки</span>
+                  <span class="simplify__task">Обучение новым темам</span>
+                  <span class="simplify__task">Организация идей</span>
+                  <span class="simplify__task">Повседневные решения</span>
+                </div>
+                <a class="btn btn--secondary simplify__zone-action" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                  Хочу упростить задачу для жизни
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- С ЧЕГО НАЧАТЬ -->
+      <section class="section section--alt routes" id="start" aria-labelledby="start-title">
+        <div class="container">
+          <header class="section-header section-header--center reveal">
+            <p class="section-header__label">С чего начать</p>
+            <h2 class="section-header__title" id="start-title">Три понятных маршрута</h2>
+            <p class="section-header__subtitle">Выберите то, что ближе к вашей ситуации прямо сейчас</p>
+          </header>
+
+          <div class="routes__grid reveal-stagger">
+            <article class="route-card route-card--featured" data-spotlight data-tilt>
+              <span class="route-card__number">01</span>
+              <h3 class="route-card__title">Мне нужно разобраться</h3>
+              <p class="route-card__text">Я пока не понимаю, какой инструмент подойдёт.</p>
+              <div class="route-card__action">
+                <a class="btn btn--primary" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                  Записаться на бесплатную консультацию
+                </a>
+              </div>
+            </article>
+
+            <article class="route-card" data-spotlight data-tilt>
+              <span class="route-card__number">02</span>
+              <h3 class="route-card__title">Мне нужен готовый инструмент</h3>
+              <p class="route-card__text">Хочу использовать уже созданного помощника или мини-сервис.</p>
+              <div class="route-card__action">
+                <a class="btn btn--secondary" href="#tools" data-nav-link>Посмотреть инструменты</a>
+              </div>
+            </article>
+
+            <article class="route-card" data-spotlight data-tilt>
+              <span class="route-card__number">03</span>
+              <h3 class="route-card__title">Мне нужно решение под мою задачу</h3>
+              <p class="route-card__text">Мне нужен персональный инструмент или понятный способ решения конкретной задачи.</p>
+              <div class="route-card__action">
+                <a class="btn btn--secondary" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                  Обсудить задачу
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- УЖЕ СОЗДАНО -->
+      <section class="section projects" id="tools" aria-labelledby="tools-title">
+        <div class="container">
+          <header class="section-header reveal-clip">
+            <p class="section-header__label">Инструменты</p>
+            <h2 class="section-header__title" id="tools-title">Инструменты для работы и жизни</h2>
+            <p class="section-header__subtitle">
+              Начинаю с небольших понятных решений, которые можно открыть и использовать прямо в браузере.
+            </p>
+          </header>
+
+          <div class="projects__list" id="projects">
+            <article class="project-case project-case--work reveal reveal--scale" data-spotlight data-tilt>
+              <div class="project-case__content">
+                <span class="project-case__category">Для работы</span>
+                <h3 class="project-case__title">Помощник для создания контента</h3>
+
+                <div class="project-case__meta">
+                  <div class="project-case__block">
+                    <p class="project-case__block-label">Задача</p>
+                    <p class="project-case__block-text">Регулярно нужны идеи для публикаций, но на их поиск уходит много времени</p>
+                  </div>
+                  <div class="project-case__block">
+                    <p class="project-case__block-label">Решение</p>
+                    <p class="project-case__block-text">Готовые идеи для постов, сторис и недельного контент-плана</p>
+                  </div>
+                </div>
+                <ul class="project-case__benefits">
+                  <li class="project-case__benefit">Готовые идеи за пару минут</li>
+                  <li class="project-case__benefit">Структура для недели контента</li>
+                  <li class="project-case__benefit">Не нужно начинать с пустого листа</li>
+                </ul>
+                <div class="project-case__features">
+                  <span class="tag">бесплатно</span>
+                  <span class="tag">без регистрации</span>
+                  <span class="tag">работает в браузере</span>
+                </div>
+                <div class="project-case__actions">
+                  <a class="btn btn--primary btn--shine" href="https://1306silk-star.github.io/my_test/" target="_blank" rel="noopener noreferrer">Открыть помощник</a>
+                  <a class="btn btn--secondary" href="https://github.com/1306silk-star/my_test" target="_blank" rel="noopener noreferrer">Посмотреть код на GitHub</a>
+                </div>
+              </div>
+              <div class="project-case__visual">
+                <div class="project-live">
+                  <div class="project-live__bar" aria-hidden="true">
+                    <span class="project-live__dot"></span>
+                    <span class="project-live__dot"></span>
+                    <span class="project-live__dot"></span>
+                    <span class="project-live__url">1306silk-star.github.io/my_test</span>
+                  </div>
+                  <iframe
+                    class="project-live__frame"
+                    src="https://1306silk-star.github.io/my_test/"
+                    title="Помощник для создания контента — живое приложение"
+                    loading="lazy"
+                    allow="clipboard-write"
+                  ></iframe>
+                  <div class="project-live__fallback">
+                    <a class="btn btn--secondary btn--sm" href="https://1306silk-star.github.io/my_test/" target="_blank" rel="noopener noreferrer">Открыть в новой вкладке</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-case project-case--life project-case--reverse reveal reveal--scale" data-spotlight data-tilt>
+              <div class="project-case__content">
+                <span class="project-case__category">Для жизни</span>
+                <h3 class="project-case__title">Личный бюджет</h3>
+
+                <div class="project-case__meta">
+                  <div class="project-case__block">
+                    <p class="project-case__block-label">Задача</p>
+                    <p class="project-case__block-text">Сложно отслеживать расходы и понимать, сколько откладывать на цель</p>
+                  </div>
+                  <div class="project-case__block">
+                    <p class="project-case__block-label">Решение</p>
+                    <p class="project-case__block-text">Простой инструмент для учёта личных финансов и движения к цели накоплений в евро</p>
+                  </div>
+                </div>
+                <ul class="project-case__benefits">
+                  <li class="project-case__benefit">Понятная структура расходов</li>
+                  <li class="project-case__benefit">Расчёты в евро</li>
+                  <li class="project-case__benefit">Визуализация прогресса к цели</li>
+                </ul>
+                <div class="project-case__features">
+                  <span class="tag">понятная структура</span>
+                  <span class="tag">расчёты в евро</span>
+                  <span class="tag">визуализация цели</span>
+                </div>
+                <div class="project-case__actions">
+                  <a class="btn btn--primary btn--shine" href="https://1306silk-star.github.io/my_budget/" target="_blank" rel="noopener noreferrer">Открыть приложение</a>
+                  <a class="btn btn--secondary" href="https://github.com/1306silk-star/my_budget" target="_blank" rel="noopener noreferrer">Посмотреть код на GitHub</a>
+                </div>
+              </div>
+              <div class="project-case__visual">
+                <div class="project-live">
+                  <div class="project-live__bar" aria-hidden="true">
+                    <span class="project-live__dot"></span>
+                    <span class="project-live__dot"></span>
+                    <span class="project-live__dot"></span>
+                    <span class="project-live__url">1306silk-star.github.io/my_budget</span>
+                  </div>
+                  <iframe
+                    class="project-live__frame"
+                    src="https://1306silk-star.github.io/my_budget/"
+                    title="Личный бюджет — живое приложение"
+                    loading="lazy"
+                    allow="clipboard-write"
+                  ></iframe>
+                  <div class="project-live__fallback">
+                    <a class="btn btn--secondary btn--sm" href="https://1306silk-star.github.io/my_budget/" target="_blank" rel="noopener noreferrer">Открыть в новой вкладке</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- КАК Я РАБОТАЮ -->
+      <section class="section section--alt process" id="process" aria-labelledby="process-title">
+        <div class="container">
+          <header class="section-header section-header--center reveal">
+            <p class="section-header__label">Процесс</p>
+            <h2 class="section-header__title" id="process-title">Как я работаю</h2>
+          </header>
+
+          <div class="process__timeline">
+            <article class="process-step reveal">
+              <span class="process-step__number">01</span>
+              <p class="process-step__text">Вы рассказываете о задаче</p>
+            </article>
+            <article class="process-step reveal reveal--delay-1">
+              <span class="process-step__number">02</span>
+              <p class="process-step__text">Мы определяем, что действительно стоит упростить</p>
+            </article>
+            <article class="process-step reveal reveal--delay-2">
+              <span class="process-step__number">03</span>
+              <p class="process-step__text">Я предлагаю понятный вариант решения</p>
+            </article>
+            <article class="process-step reveal reveal--delay-2">
+              <span class="process-step__number">04</span>
+              <p class="process-step__text">Мы создаём или настраиваем инструмент</p>
+            </article>
+            <article class="process-step reveal reveal--delay-3">
+              <span class="process-step__number">05</span>
+              <p class="process-step__text">Я показываю, как им пользоваться</p>
+            </article>
+          </div>
+
+          <blockquote class="process__quote reveal">
+            <p class="process__quote-text">
+              Технология должна облегчать жизнь, а&nbsp;не&nbsp;становиться новой сложной обязанностью.
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- ОБО МНЕ -->
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <div class="about__grid">
+            <div class="about__photo-wrap reveal reveal-image">
+              <div class="about__photo-accent" aria-hidden="true"></div>
+              <div class="about__photo-frame">
+                <img
+                  class="about__photo"
+                  src="assets/images/contacts/contacts.jpg"
+                  alt="Ирина Андреева"
+                  width="800"
+                  height="800"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div class="about__content reveal reveal--delay-1">
+              <div class="section-divider"></div>
+              <h2 class="about__title" id="about-title">
+                Я сама прошла путь от «ничего не понимаю» до&nbsp;собственных цифровых проектов
+              </h2>
+              <p class="about__text">
+                Меня зовут Ирина Андреева. Я изучаю искусственный интеллект с&nbsp;2023&nbsp;года, проходила обучение в&nbsp;Школе Ксении Барановой и&nbsp;применяла AI в&nbsp;собственном товарном бизнесе.
+              </p>
+              <p class="about__text">
+                Сейчас я создаю новое направление&nbsp;— помогаю людям использовать искусственный интеллект в&nbsp;работе и&nbsp;жизни без страха, сложных слов и&nbsp;ощущения, что технологии предназначены только для программистов.
+              </p>
+              <p class="about__text">
+                Моя сильная сторона&nbsp;— объяснять спокойно, понятно и&nbsp;пошагово. Именно поэтому появился бренд «Со_мной_легко».
+              </p>
+              <div class="about__facts">
+                <span class="about__fact">AI с 2023 года</span>
+                <span class="about__fact">Опыт собственного бизнеса</span>
+                <span class="about__fact">Обучение и практика</span>
+                <span class="about__fact">Проекты в Cursor и GitHub</span>
+                <span class="about__fact">Работающие мини-сервисы</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ПЕРВЫЕ РЕЗУЛЬТАТЫ -->
+      <section class="section section--alt results" id="results" aria-labelledby="results-title">
+        <div class="container">
+          <header class="section-header reveal">
+            <p class="section-header__label">Результаты</p>
+            <h2 class="section-header__title" id="results-title">Первые результаты</h2>
+          </header>
+
+          <p class="results__intro reveal">
+            Это новое направление, которое развивается на&nbsp;основе практического обучения, предпринимательского опыта и&nbsp;собственных работающих проектов.
+          </p>
+
+          <div class="results__timeline">
+            <article class="result-item reveal">
+              <h3 class="result-item__title">Первый опубликованный помощник для контента</h3>
+              <p class="result-item__text">Работает в браузере, бесплатно и без регистрации — можно попробовать прямо сейчас.</p>
+              <a class="result-item__link" href="https://1306silk-star.github.io/my_test/" target="_blank" rel="noopener noreferrer">Открыть помощник →</a>
+            </article>
+            <article class="result-item reveal reveal--delay-1">
+              <h3 class="result-item__title">Личный бюджет — второй AI-проект</h3>
+              <p class="result-item__text">Работающее приложение для учёта финансов в евро с визуализацией цели накоплений.</p>
+              <a class="result-item__link" href="https://1306silk-star.github.io/my_budget/" target="_blank" rel="noopener noreferrer">Открыть приложение →</a>
+            </article>
+            <article class="result-item reveal reveal--delay-2">
+              <h3 class="result-item__title">Первые созданные AI-проекты на GitHub</h3>
+              <p class="result-item__text">Все проекты с открытым кодом — можно посмотреть, как они устроены.</p>
+              <a class="result-item__link" href="https://github.com/1306silk-star" target="_blank" rel="noopener noreferrer">Профиль GitHub →</a>
+            </article>
+            <article class="result-item reveal reveal--delay-3">
+              <h3 class="result-item__title">Развитие проектов по версиям</h3>
+              <p class="result-item__text">Каждый инструмент улучшается на основе практики и обратной связи.</p>
+            </article>
+            <article class="result-item reveal reveal--delay-3">
+              <h3 class="result-item__title">Продолжение обучения</h3>
+              <p class="result-item__text">Регулярно осваиваю новые подходы и применяю их в реальных задачах.</p>
+            </article>
+          </div>
+
+          <p class="results__note reveal">
+            Это честный старт нового направления. Я показываю реальные проекты, а&nbsp;не&nbsp;обещаю то, чего пока нет.
+          </p>
+        </div>
+      </section>
+
+      <!--
+        БЛОК «ОТЗЫВЫ» — скрыт до появления реальных отзывов
+        <section class="section testimonials" id="testimonials" hidden>
+          ...
+        </section>
+      -->
+
+      <!-- СКОРО -->
+      <section class="section section--dark roadmap" id="soon" aria-labelledby="soon-title">
+        <div class="container">
+          <header class="section-header section-header--center reveal">
+            <p class="section-header__label">В планах</p>
+            <h2 class="section-header__title" id="soon-title">Что появится дальше</h2>
+            <p class="section-header__subtitle">Новые инструменты, над которыми я работаю или планирую работать</p>
+          </header>
+
+          <div class="roadmap__grid">
+            <article class="roadmap-card reveal">
+              <span class="roadmap-card__status roadmap-card__status--planned">Запланировано</span>
+              <h3 class="roadmap-card__title">Библиотека проверенных промптов</h3>
+            </article>
+            <article class="roadmap-card reveal reveal--delay-1">
+              <span class="roadmap-card__status roadmap-card__status--dev">В разработке</span>
+              <h3 class="roadmap-card__title">Игра для изучения иностранного языка</h3>
+            </article>
+            <article class="roadmap-card reveal reveal--delay-1">
+              <span class="roadmap-card__status roadmap-card__status--dev">В разработке</span>
+              <h3 class="roadmap-card__title">Помощник по деловой переписке</h3>
+            </article>
+            <article class="roadmap-card reveal reveal--delay-2">
+              <span class="roadmap-card__status roadmap-card__status--planned">Запланировано</span>
+              <h3 class="roadmap-card__title">Планировщик поездок</h3>
+            </article>
+            <article class="roadmap-card reveal reveal--delay-2">
+              <span class="roadmap-card__status roadmap-card__status--planned">Запланировано</span>
+              <h3 class="roadmap-card__title">Новые боты</h3>
+            </article>
+            <article class="roadmap-card reveal reveal--delay-3">
+              <span class="roadmap-card__status roadmap-card__status--planned">Запланировано</span>
+              <h3 class="roadmap-card__title">Мини-сервисы для работы и жизни</h3>
+            </article>
+          </div>
+
+          <div class="roadmap__cta reveal">
+            <a class="btn btn--secondary btn--lg" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+              Следить за новыми инструментами
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <header class="section-header section-header--center reveal">
+            <p class="section-header__label">Вопросы</p>
+            <h2 class="section-header__title" id="faq-title">Часто задаваемые вопросы</h2>
+          </header>
+
+          <div class="faq__list">
+            <article class="faq-item reveal">
+              <button class="faq-item__trigger" type="button" aria-expanded="false">
+                <span>Я совсем не разбираюсь в искусственном интеллекте. Мне подойдёт?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__panel" role="region">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__answer">Да. Я как раз работаю с людьми, которые только начинают. Мы разберём вашу задачу простым языком — без сложных терминов и давления. Главное — понять, что вы хотите упростить.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal reveal--delay-1">
+              <button class="faq-item__trigger" type="button" aria-expanded="false">
+                <span>Что происходит на бесплатной консультации?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__panel" role="region">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__answer">Вы рассказываете о задаче, которая отнимает время. Мы вместе определяем, можно ли её облегчить с помощью AI, и обсуждаем, с чего лучше начать. Никаких обязательств — только разговор и понятные рекомендации.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal reveal--delay-1">
+              <button class="faq-item__trigger" type="button" aria-expanded="false">
+                <span>Нужно ли покупать платную подписку на ChatGPT?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__panel" role="region">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__answer">Не обязательно. Для многих задач хватает бесплатных инструментов. Если платная подписка действительно нужна — я объясню, зачем и как ею пользоваться с пользой.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal reveal--delay-2">
+              <button class="faq-item__trigger" type="button" aria-expanded="false">
+                <span>Вы помогаете только бизнесу?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__panel" role="region">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__answer">Нет. Я помогаю и с рабочими задачами, и с повседневными: бюджет, планирование поездок, обучение, организация информации. AI полезен не только в бизнесе.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal reveal--delay-2">
+              <button class="faq-item__trigger" type="button" aria-expanded="false">
+                <span>Можно ли обратиться с обычной жизненной задачей?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__panel" role="region">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__answer">Конечно. Если задача повторяется и отнимает время — можно найти для неё понятное решение. Расскажите, что именно хотите упростить.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal reveal--delay-3">
+              <button class="faq-item__trigger" type="button" aria-expanded="false">
+                <span>Чем готовый инструмент отличается от персонального решения?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__panel" role="region">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__answer">Готовый инструмент — это уже созданный помощник, которым можно пользоваться сразу. Персональное решение — инструмент, настроенный под вашу конкретную задачу, процесс и привычки.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal reveal--delay-3">
+              <button class="faq-item__trigger" type="button" aria-expanded="false">
+                <span>Можно ли пользоваться бесплатными помощниками без регистрации?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__panel" role="region">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__answer">Да, некоторые из моих инструментов работают прямо в браузере — бесплатно и без регистрации. Посмотрите раздел «Инструменты» на этом сайте.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal reveal--delay-3">
+              <button class="faq-item__trigger" type="button" aria-expanded="false">
+                <span>Где следить за новыми проектами?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__panel" role="region">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__answer">Подписывайтесь на мой Telegram-канал — там я делюсь новыми инструментами, идеями и обновлениями проектов.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ФИНАЛЬНЫЙ CTA -->
+      <section class="section section--dark cta" id="contacts" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="cta__grid">
+            <div class="cta__content reveal">
+              <h2 class="cta__title" id="cta-title">Расскажите, какая задача отнимает у&nbsp;вас время</h2>
+              <p class="cta__text">
+                На бесплатной консультации мы разберёмся, можно ли облегчить её с&nbsp;помощью AI и&nbsp;с&nbsp;чего лучше начать.
+              </p>
+              <div class="cta__actions">
+                <a class="btn btn--primary btn--lg btn--shine" data-magnetic href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                  Записаться на бесплатную консультацию
+                </a>
+                <a class="btn btn--secondary" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                  Написать в Telegram
+                </a>
+                <a class="btn btn--secondary" href="#tools" data-nav-link>
+                  Посмотреть инструменты
+                </a>
+              </div>
+            </div>
+
+            <div class="cta__visual reveal reveal-image">
+              <div class="cta__portrait-wrap">
+                <div class="cta__portrait-glow" aria-hidden="true"></div>
+                <img
+                  class="cta__photo"
+                  src="assets/images/hero/hero.png"
+                  alt="Ирина Андреева"
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ФУТЕР -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <p class="site-footer__logo">
+              Со<span class="site-footer__logo-underscore">_</span>мной_легко
+            </p>
+            <p class="site-footer__tagline">
+              Ирина Андреева<br />
+              Помогаю использовать искусственный интеллект в&nbsp;работе и&nbsp;жизни.
+            </p>
+          </div>
+
+          <div>
+            <p class="site-footer__heading">Ссылки</p>
+            <nav class="site-footer__links" aria-label="Ссылки в футере">
+              <a class="site-footer__link" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a class="site-footer__link" href="https://github.com/1306silk-star" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="site-footer__link" href="#tools" data-nav-link>Инструменты</a>
+              <a class="site-footer__link" href="#projects" data-nav-link>Проекты</a>
+              <a class="site-footer__link" href="#contacts" data-nav-link>Контакты</a>
+            </nav>
+          </div>
+        </div>
+
+        <p class="site-footer__bottom">
+          © 2026 Со_мной_легко · Ирина Андреева
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/accordion.js"></script>
+    <script src="js/scroll-reveal.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

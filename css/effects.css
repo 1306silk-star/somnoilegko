@@ -1,0 +1,173 @@
+/**
+ * Эффекты: spotlight, magnetic, gradient mesh, live embeds
+ */
+
+/* ── Spotlight (React Bits) ── */
+[data-spotlight] {
+  --spot-x: 50%;
+  --spot-y: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-spotlight]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    520px circle at var(--spot-x) var(--spot-y),
+    rgba(212, 114, 106, 0.14),
+    transparent 42%
+  );
+}
+
+[data-spotlight][data-tilt] {
+  transform-style: preserve-3d;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+[data-spotlight]:hover::after {
+  opacity: 1;
+}
+
+.project-case--work[data-spotlight]::after {
+  background: radial-gradient(
+    520px circle at var(--spot-x) var(--spot-y),
+    rgba(30, 77, 58, 0.12),
+    transparent 42%
+  );
+}
+
+/* ── Magnetic buttons ── */
+[data-magnetic] {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Hero mesh canvas ── */
+.hero__mesh-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#hero-mesh {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Live app embed ── */
+.project-live {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.project-case:hover .project-live {
+  box-shadow: 0 20px 50px rgba(30, 77, 58, 0.15);
+}
+
+.project-case[data-tilt]:hover .project-live {
+  transform: none;
+}
+
+.project-case--life:hover .project-live {
+  box-shadow: 0 20px 50px rgba(212, 114, 106, 0.18);
+}
+
+.project-live__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 2.25rem;
+  padding: 0 var(--space-4);
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-live__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+.project-live__dot:nth-child(1) { background: #e8a598; }
+.project-live__dot:nth-child(2) { background: #e8d5a0; }
+.project-live__dot:nth-child(3) { background: #a8c5a0; }
+
+.project-live__url {
+  margin-left: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-live__frame {
+  display: block;
+  width: 100%;
+  height: clamp(16rem, 42vw, 22rem);
+  border: none;
+  background: var(--color-surface);
+}
+
+.project-live__fallback {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Shine button (React Bits Shiny) ── */
+.btn--shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 65%
+  );
+  transition: left 0.55s ease;
+}
+
+.btn--shine:hover::before {
+  left: 140%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-spotlight]::after {
+    display: none;
+  }
+
+  .btn--shine::before {
+    display: none;
+  }
+}

@@ -1,0 +1,284 @@
+/**
+ * Блок «Знакомо?» — bento-композиция + «Что можно упростить»
+ */
+
+.recognize {
+  position: relative;
+}
+
+.recognize__grid {
+  display: grid;
+  gap: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .recognize__grid {
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+    gap: var(--space-16);
+  }
+}
+
+.recognize__intro {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-8));
+}
+
+.recognize__title {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-6);
+}
+
+.recognize__conclusion {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  color: var(--color-primary);
+  padding-top: var(--space-6);
+  border-top: 2px solid var(--color-accent-soft);
+}
+
+/* Bento-сетка вместо однотипных карточек */
+.recognize__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 480px) {
+  .recognize__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+}
+
+@media (min-width: 768px) {
+  .recognize__list {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-3);
+  }
+
+  .recognize__item:nth-child(1) { grid-column: span 4; }
+  .recognize__item:nth-child(2) { grid-column: span 2; }
+  .recognize__item:nth-child(3) { grid-column: span 2; }
+  .recognize__item:nth-child(4) { grid-column: span 4; }
+  .recognize__item:nth-child(5) { grid-column: span 3; }
+  .recognize__item:nth-child(6) { grid-column: span 3; }
+  .recognize__item:nth-child(7) { grid-column: span 2; }
+  .recognize__item:nth-child(8) { grid-column: span 2; }
+  .recognize__item:nth-child(9) { grid-column: span 2; }
+  .recognize__item:nth-child(10) { grid-column: span 6; }
+}
+
+.recognize__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.recognize__item:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.recognize__item:nth-child(10) {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  background: var(--color-primary-soft);
+  border-color: transparent;
+}
+
+.recognize__item:nth-child(10):hover {
+  background: rgba(30, 77, 58, 0.12);
+}
+
+.recognize__icon {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.recognize__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Что можно упростить ── */
+
+.simplify {
+  padding-top: var(--space-16);
+  position: relative;
+}
+
+.simplify::before {
+  content: "";
+  position: absolute;
+  top: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80%, 24rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.simplify__zones {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .simplify__zones {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.simplify__zone {
+  position: relative;
+  padding: var(--space-8) var(--space-8) var(--space-10);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.simplify__zone::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: var(--radius-full);
+}
+
+.simplify__zone:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.simplify__zone--work {
+  background: linear-gradient(160deg, var(--color-surface) 30%, var(--color-bg-alt) 100%);
+  border: 1px solid var(--color-border);
+}
+
+.simplify__zone--work::before {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-soft));
+}
+
+.simplify__zone--life {
+  background: linear-gradient(160deg, #fdf8f7 0%, var(--color-accent-soft) 100%);
+  border: 1px solid rgba(212, 114, 106, 0.25);
+}
+
+.simplify__zone--life::before {
+  background: linear-gradient(90deg, var(--color-accent), rgba(212, 114, 106, 0.3));
+}
+
+.simplify__zone-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.simplify__zone-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  color: var(--color-primary);
+}
+
+.simplify__zone-icon svg {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.simplify__zone--work .simplify__zone-icon {
+  background: var(--color-primary-soft);
+}
+
+.simplify__zone--life .simplify__zone-icon {
+  background: rgba(212, 114, 106, 0.15);
+  color: var(--color-accent-hover);
+}
+
+.simplify__zone-title {
+  font-size: var(--text-2xl);
+}
+
+.simplify__tasks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.simplify__task {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.simplify__task:hover {
+  border-color: var(--color-border-strong);
+}
+
+.simplify__zone--work .simplify__task:nth-child(3n) {
+  font-weight: var(--weight-medium);
+  background: var(--color-primary-soft);
+  border-color: transparent;
+  color: var(--color-primary);
+}
+
+.simplify__zone--life .simplify__task:nth-child(4n) {
+  font-weight: var(--weight-medium);
+  background: rgba(212, 114, 106, 0.15);
+  border-color: transparent;
+  color: var(--color-accent-hover);
+}
+
+.simplify__zone-action {
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .simplify__zone-action {
+    width: auto;
+  }
+}
+
+.simplify__zone--life .btn--secondary:hover {
+  border-color: var(--color-accent);
+  background: rgba(212, 114, 106, 0.08);
+  color: var(--color-accent-hover);
+}

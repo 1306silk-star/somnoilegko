@@ -1,0 +1,110 @@
+/**
+ * Блок «Обо мне»
+ */
+
+.about__grid {
+  display: grid;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: var(--space-16);
+  }
+}
+
+.about__photo-wrap {
+  position: relative;
+  max-width: 26rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .about__photo-wrap {
+    margin-inline: 0;
+    max-width: none;
+  }
+}
+
+.about__photo-frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-photo);
+}
+
+.about__photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+  pointer-events: none;
+}
+
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.about__photo-accent {
+  position: absolute;
+  bottom: -1rem;
+  right: -1rem;
+  width: 40%;
+  height: 40%;
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-xl);
+  z-index: -1;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.about__title {
+  font-size: var(--text-3xl);
+  line-height: var(--leading-snug);
+}
+
+.about__text {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+
+.about__text + .about__text {
+  margin-top: calc(var(--space-4) * -1 + var(--space-2));
+}
+
+.about__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+}
+
+.about__fact {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.about__fact:hover {
+  background: var(--color-primary-soft);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,168 @@
+/**
+ * CTA — квадратный портрет hero.png
+ */
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.cta__grid {
+  display: grid;
+  gap: var(--space-10);
+  align-items: end;
+}
+
+@media (min-width: 768px) {
+  .cta__grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-12);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-16);
+  }
+}
+
+.cta__content {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-10) var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .cta__content {
+    padding-block: var(--space-12) var(--space-20);
+  }
+}
+
+.cta__title {
+  font-size: var(--text-3xl);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-6);
+}
+
+.cta__text {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-8);
+  max-width: 32rem;
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.cta__actions .btn--primary {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border-color: var(--color-surface);
+}
+
+.cta__actions .btn--primary:hover {
+  background: var(--color-bg);
+}
+
+.cta__actions .btn--secondary {
+  color: var(--color-text-inverse);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.cta__actions .btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Портрет — квадрат, компактнее */
+.cta__visual {
+  position: relative;
+  align-self: end;
+  display: flex;
+  justify-content: center;
+  line-height: 0;
+}
+
+.cta__portrait-wrap {
+  position: relative;
+  width: min(100%, 14rem);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .cta__portrait-wrap {
+    width: min(100%, 16rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta__portrait-wrap {
+    width: min(100%, 18rem);
+  }
+}
+
+.cta__portrait-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 40%;
+  background: radial-gradient(ellipse at center, rgba(212, 114, 106, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta__photo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 55%;
+  background: radial-gradient(ellipse at bottom left, rgba(212, 114, 106, 0.16) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  top: 12%;
+  right: 8%;
+  width: 5rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212, 114, 106, 0.55));
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .cta__visual {
+    order: 2;
+    margin-top: var(--space-4);
+  }
+
+  .cta__portrait-wrap {
+    width: min(100%, 13rem);
+  }
+}

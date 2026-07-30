@@ -1,0 +1,35 @@
+/**
+ * Фирменный мотив — коралловая дуга (отсылка к тюльпанам)
+ */
+
+.brand-motif {
+  display: block;
+  width: 3rem;
+  height: 1.5rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.brand-motif--lg {
+  width: 4.5rem;
+  height: 2rem;
+}
+
+.brand-motif--light {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Декоративная метка секции */
+.section-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.section-marker::after {
+  content: "";
+  width: 2.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  border-radius: var(--radius-full);
+}

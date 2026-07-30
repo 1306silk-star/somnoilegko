@@ -1,0 +1,91 @@
+/**
+ * Блок «Первые результаты»
+ */
+
+.results__intro {
+  max-width: 42rem;
+  margin-bottom: var(--space-12);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+
+.results__timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: var(--space-8);
+}
+
+.results__timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.6875rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--color-accent),
+    var(--color-primary)
+  );
+  opacity: 0.35;
+  border-radius: var(--radius-full);
+}
+
+.result-item {
+  position: relative;
+  padding: var(--space-6) 0 var(--space-8) var(--space-8);
+}
+
+.result-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-8) + 0.375rem);
+  top: var(--space-8);
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--color-surface);
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.result-item__title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  margin-bottom: var(--space-2);
+}
+
+.result-item__text {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+
+.result-item__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-primary);
+  transition: color var(--transition-fast);
+}
+
+.result-item__link:hover {
+  color: var(--color-accent);
+}
+
+.results__note {
+  margin-top: var(--space-10);
+  padding: var(--space-6) var(--space-8);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
