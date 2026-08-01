@@ -4,7 +4,7 @@
 
 const SITE_CONFIG = {
   lang: "ru",
-  brand: "Со_мной_легко",
+  brand: "Сомной_легко",
   person: "Ирина Андреева",
   telegram: "https://t.me/somnoi_legko",
   github: "https://github.com/1306silk-star",

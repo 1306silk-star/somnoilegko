@@ -52,7 +52,7 @@ body {
 .section-header__title {
   font-size: var(--text-3xl);
   line-height: var(--leading-snug);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .section-header__subtitle {

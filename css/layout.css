@@ -10,18 +10,18 @@
 }
 
 .section {
-  padding-block: var(--space-16);
+  padding-block: var(--space-20);
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-block: var(--space-20);
+    padding-block: var(--space-24);
   }
 }
 
 @media (min-width: 1024px) {
   .section {
-    padding-block: var(--space-24);
+    padding-block: clamp(5rem, 8vw, 7rem);
   }
 }
 

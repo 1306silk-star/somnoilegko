@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Со_мной_легко — Ирина Андреева · AI для работы и жизни</title>
+    <title>Сомной_легко — Ирина Андреева · Сайты, AI, автоматизация</title>
     <meta
       name="description"
       content="Помогаю разобраться, какие задачи можно передать AI, подобрать понятные инструменты и научиться ими пользоваться — спокойно, без сложных терминов."
@@ -13,7 +13,7 @@
     <!-- Open Graph / Telegram / соцсети -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_RU" />
-    <meta property="og:title" content="Со_мной_легко — Ирина Андреева · AI для работы и жизни" />
+    <meta property="og:title" content="Сомной_легко — Ирина Андреева · Сайты, AI, автоматизация" />
     <meta
       property="og:description"
       content="Освободите время от рутинных задач с помощью искусственного интеллекта. Спокойно, понятно и пошагово."
@@ -21,10 +21,10 @@
     <meta property="og:image" content="assets/images/about/about.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Со_мной_легко" />
+    <meta property="og:site_name" content="Сомной_легко" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Со_мной_легко — Ирина Андреева · AI для работы и жизни" />
+    <meta name="twitter:title" content="Сомной_легко — Ирина Андреева · Сайты, AI, автоматизация" />
     <meta
       name="twitter:description"
       content="Помогаю использовать AI в работе и жизни — спокойно, без сложных терминов."
@@ -64,6 +64,7 @@
     <link rel="stylesheet" href="css/components/faq.css" />
     <link rel="stylesheet" href="css/components/cta.css" />
     <link rel="stylesheet" href="css/components/footer.css" />
+    <link rel="stylesheet" href="css/components/contact-modal.css" />
   </head>
 
   <body>
@@ -72,8 +73,8 @@
     <!-- ШАПКА -->
     <header class="site-header" role="banner">
       <div class="container site-header__inner">
-        <a class="site-logo" href="#top" aria-label="Со_мной_легко — на главную">
-          Со<span class="site-logo__underscore">_</span>мной_легко
+        <a class="site-logo" href="#top" aria-label="Сомной_легко — на главную">
+          Сомной<span class="site-logo__underscore">_</span>легко
         </a>
 
         <nav class="site-nav" aria-label="Основная навигация">
@@ -149,56 +150,35 @@
             <div class="hero__content">
               <p class="eyebrow hero__eyebrow">
                 <span class="hero__eyebrow-name">Ирина Андреева</span>
-                <span class="hero__eyebrow-sep" aria-hidden="true">·</span>
-                <span>AI для работы и жизни</span>
               </p>
 
               <h1 class="hero__title" id="hero-title">
                 <span class="hero__title-line">
-                  <span class="hero__title-line-inner"><span class="hero__title-accent">Освободите время</span></span>
+                  <span class="hero__word"><span class="hero__word-text">Со</span></span>
+                  <span class="hero__word"><span class="hero__word-text">мной</span></span><span class="hero__title-dash" aria-hidden="true">&nbsp;—</span>
                 </span>
                 <span class="hero__title-line">
-                  <span class="hero__title-line-inner">от рутинных задач с&nbsp;помощью</span>
-                </span>
-                <span class="hero__title-line">
-                  <span class="hero__title-line-inner">искусственного интеллекта</span>
+                  <span class="hero__word hero__word--accent"><span class="hero__word-text">легко</span></span>
+                  <span class="hero__word"><span class="hero__word-text">и</span></span>
+                  <span class="hero__word hero__word--accent"><span class="hero__word-text">понятно.</span></span>
                 </span>
               </h1>
 
-              <p class="hero__subtitle">
-                Помогаю разобраться, какие задачи можно передать AI, подобрать понятные инструменты и&nbsp;научиться ими пользоваться&nbsp;— спокойно, без сложных терминов и&nbsp;перегрузки.
-              </p>
-
-              <ul class="hero__pillars" aria-label="Ключевые направления">
-                <li class="hero__pillar hero__pillar--primary">Для работы</li>
-                <li class="hero__pillar">Для жизни</li>
-                <li class="hero__pillar">Понятно и пошагово</li>
-                <li class="hero__pillar">Реальные инструменты</li>
-              </ul>
+              <p class="hero__tagline">Сайты. AI. Автоматизация.</p>
 
               <div class="hero__actions">
-                <div class="hero__actions-primary">
-                  <a
-                    class="btn btn--primary btn--lg btn--shine"
-                    data-magnetic
-                    href="https://t.me/somnoi_legko"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Записаться на бесплатную консультацию
-                  </a>
-                </div>
-                <div class="hero__actions-secondary">
-                  <a class="btn btn--ghost" href="#tasks" data-nav-link>
-                    Посмотреть, какие задачи можно решить
-                  </a>
-                  <a class="btn btn--ghost" href="#tools" data-nav-link>
-                    Открыть бесплатные инструменты
-                  </a>
-                  <a class="btn btn--ghost" href="#projects" data-nav-link>
-                    Посмотреть проекты
-                  </a>
-                </div>
+                <a class="btn btn--hero btn--hero-primary" data-magnetic href="#projects" data-nav-link>
+                  Посмотреть проекты
+                </a>
+                <a
+                  class="btn btn--hero btn--hero-secondary"
+                  data-magnetic
+                  href="https://t.me/somnoi_legko"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Обсудить задачу
+                </a>
               </div>
             </div>
 
@@ -213,12 +193,57 @@
                   height="1125"
                   fetchpriority="high"
                 />
-                <span class="hero__label-float">Со_мной_легко</span>
+                <span class="hero__label-float">Сомной_легко</span>
                 <svg class="hero__motif brand-motif" viewBox="0 0 48 24" aria-hidden="true">
                   <path class="motif-stroke" d="M4 20 Q24 2 44 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
                 </svg>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ЧТО Я ДЕЛАЮ -->
+      <section class="section what-i-do" id="what-i-do" aria-labelledby="what-i-do-title">
+        <div class="container">
+          <header class="section-header reveal">
+            <p class="section-header__label">Направления</p>
+            <h2 class="section-header__title" id="what-i-do-title">Что я делаю</h2>
+          </header>
+
+          <div class="what-i-do__grid reveal-stagger">
+            <article class="what-i-do__item what-i-do__item--featured">
+              <span class="what-i-do__label">01</span>
+              <h3 class="what-i-do__name">Лендинги</h3>
+            </article>
+            <article class="what-i-do__item">
+              <span class="what-i-do__label">02</span>
+              <h3 class="what-i-do__name">Портфолио</h3>
+            </article>
+            <article class="what-i-do__item what-i-do__item--wide">
+              <span class="what-i-do__label">03</span>
+              <h3 class="what-i-do__name">Промостраницы</h3>
+            </article>
+            <article class="what-i-do__item what-i-do__item--accent">
+              <span class="what-i-do__label">04</span>
+              <h3 class="what-i-do__name">AI-first сайты</h3>
+            </article>
+            <article class="what-i-do__item">
+              <span class="what-i-do__label">05</span>
+              <h3 class="what-i-do__name">Digital-концепты</h3>
+            </article>
+            <article class="what-i-do__item">
+              <span class="what-i-do__label">06</span>
+              <h3 class="what-i-do__name">Интерфейсы</h3>
+            </article>
+            <article class="what-i-do__item what-i-do__item--wide">
+              <span class="what-i-do__label">07</span>
+              <h3 class="what-i-do__name">Спецпроекты</h3>
+            </article>
+            <article class="what-i-do__item what-i-do__item--featured what-i-do__item--dark">
+              <span class="what-i-do__label">08</span>
+              <h3 class="what-i-do__name">AI-продукты</h3>
+            </article>
           </div>
         </div>
       </section>
@@ -500,39 +525,45 @@
         </div>
       </section>
 
-      <!-- КАК Я РАБОТАЮ -->
-      <section class="section section--alt process" id="process" aria-labelledby="process-title">
+      <!-- МОЙ ПОДХОД -->
+      <section class="section section--alt approach" id="process" aria-labelledby="approach-title">
         <div class="container">
           <header class="section-header section-header--center reveal">
-            <p class="section-header__label">Процесс</p>
-            <h2 class="section-header__title" id="process-title">Как я работаю</h2>
+            <p class="section-header__label">Подход</p>
+            <h2 class="section-header__title sr-only" id="approach-title">Мой подход</h2>
           </header>
 
-          <div class="process__timeline">
-            <article class="process-step reveal">
-              <span class="process-step__number">01</span>
-              <p class="process-step__text">Вы рассказываете о задаче</p>
+          <div class="approach__manifesto reveal" aria-hidden="false">
+            <p class="approach__line reveal">Быстро.</p>
+            <p class="approach__line approach__line--accent reveal reveal--delay-1">Красиво.</p>
+            <p class="approach__line reveal reveal--delay-2">Точно.</p>
+          </div>
+
+          <div class="approach__steps">
+            <article class="approach-step reveal">
+              <span class="approach-step__number">01</span>
+              <p class="approach-step__text">Вы рассказываете о задаче</p>
             </article>
-            <article class="process-step reveal reveal--delay-1">
-              <span class="process-step__number">02</span>
-              <p class="process-step__text">Мы определяем, что действительно стоит упростить</p>
+            <article class="approach-step reveal reveal--delay-1">
+              <span class="approach-step__number">02</span>
+              <p class="approach-step__text">Мы определяем, что действительно стоит упростить</p>
             </article>
-            <article class="process-step reveal reveal--delay-2">
-              <span class="process-step__number">03</span>
-              <p class="process-step__text">Я предлагаю понятный вариант решения</p>
+            <article class="approach-step reveal reveal--delay-1">
+              <span class="approach-step__number">03</span>
+              <p class="approach-step__text">Я предлагаю понятный вариант решения</p>
             </article>
-            <article class="process-step reveal reveal--delay-2">
-              <span class="process-step__number">04</span>
-              <p class="process-step__text">Мы создаём или настраиваем инструмент</p>
+            <article class="approach-step reveal reveal--delay-2">
+              <span class="approach-step__number">04</span>
+              <p class="approach-step__text">Мы создаём или настраиваем инструмент</p>
             </article>
-            <article class="process-step reveal reveal--delay-3">
-              <span class="process-step__number">05</span>
-              <p class="process-step__text">Я показываю, как им пользоваться</p>
+            <article class="approach-step reveal reveal--delay-2">
+              <span class="approach-step__number">05</span>
+              <p class="approach-step__text">Я показываю, как им пользоваться</p>
             </article>
           </div>
 
-          <blockquote class="process__quote reveal">
-            <p class="process__quote-text">
+          <blockquote class="approach__quote reveal">
+            <p class="approach__quote-text">
               Технология должна облегчать жизнь, а&nbsp;не&nbsp;становиться новой сложной обязанностью.
             </p>
           </blockquote>
@@ -569,7 +600,7 @@
                 Сейчас я создаю новое направление&nbsp;— помогаю людям использовать искусственный интеллект в&nbsp;работе и&nbsp;жизни без страха, сложных слов и&nbsp;ощущения, что технологии предназначены только для программистов.
               </p>
               <p class="about__text">
-                Моя сильная сторона&nbsp;— объяснять спокойно, понятно и&nbsp;пошагово. Именно поэтому появился бренд «Со_мной_легко».
+                Моя сильная сторона&nbsp;— объяснять спокойно, понятно и&nbsp;пошагово. Именно поэтому появился бренд «Сомной_легко».
               </p>
               <div class="about__facts">
                 <span class="about__fact">AI с 2023 года</span>
@@ -799,9 +830,9 @@
                 <a class="btn btn--primary btn--lg btn--shine" data-magnetic href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
                   Записаться на бесплатную консультацию
                 </a>
-                <a class="btn btn--secondary" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
-                  Написать в Telegram
-                </a>
+                <button class="btn btn--secondary" type="button" data-contact-modal-open>
+                  Написать мне
+                </button>
                 <a class="btn btn--secondary" href="#tools" data-nav-link>
                   Посмотреть инструменты
                 </a>
@@ -832,7 +863,7 @@
         <div class="site-footer__grid">
           <div class="site-footer__brand">
             <p class="site-footer__logo">
-              Со<span class="site-footer__logo-underscore">_</span>мной_легко
+              Сомной<span class="site-footer__logo-underscore">_</span>легко
             </p>
             <p class="site-footer__tagline">
               Ирина Андреева<br />
@@ -853,16 +884,110 @@
         </div>
 
         <p class="site-footer__bottom">
-          © 2026 Со_мной_легко · Ирина Андреева
+          © 2026 Сомной_легко · Ирина Андреева
         </p>
       </div>
     </footer>
+
+    <!-- Модальное окно — форма обратной связи -->
+    <div
+      class="contact-modal"
+      id="contact-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-title"
+      aria-hidden="true"
+    >
+      <div class="contact-modal__overlay" data-contact-modal-close tabindex="-1" aria-hidden="true"></div>
+
+      <div class="contact-modal__dialog">
+        <button
+          class="contact-modal__close"
+          type="button"
+          aria-label="Закрыть"
+          data-contact-modal-close
+        >
+          ×
+        </button>
+
+        <h2 class="contact-modal__title" id="contact-modal-title">Написать мне</h2>
+        <p class="contact-modal__subtitle">
+          Оставьте контакты — я свяжусь с вами и помогу разобраться с задачей.
+        </p>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-name">Имя</label>
+            <input
+              class="contact-form__input"
+              type="text"
+              id="contact-name"
+              name="name"
+              autocomplete="name"
+              placeholder="Как к вам обращаться"
+              required
+            />
+            <span class="contact-form__error" role="alert"></span>
+          </div>
+
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-phone">Телефон</label>
+            <input
+              class="contact-form__input"
+              type="tel"
+              id="contact-phone"
+              name="phone"
+              autocomplete="tel"
+              placeholder="+7 (999) 123-45-67"
+              required
+            />
+            <span class="contact-form__error" role="alert"></span>
+          </div>
+
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-email">Email</label>
+            <input
+              class="contact-form__input"
+              type="email"
+              id="contact-email"
+              name="email"
+              autocomplete="email"
+              placeholder="example@mail.ru"
+              required
+            />
+            <span class="contact-form__error" role="alert"></span>
+          </div>
+
+          <div class="contact-form__field">
+            <label class="contact-form__consent">
+              <input
+                class="contact-form__checkbox"
+                type="checkbox"
+                id="contact-consent"
+                name="consent"
+                required
+              />
+              <span class="contact-form__consent-text">
+                Даю согласие на обработку моих персональных данных
+              </span>
+            </label>
+            <span class="contact-form__error" role="alert"></span>
+          </div>
+
+          <button class="btn btn--primary contact-form__submit" type="submit">
+            Отправить
+          </button>
+        </form>
+      </div>
+    </div>
 
     <script src="js/config.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/accordion.js"></script>
     <script src="js/scroll-reveal.js"></script>
+    <script src="js/hero-animation.js"></script>
     <script src="js/effects.js"></script>
+    <script src="js/contact-modal.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
