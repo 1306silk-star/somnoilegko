@@ -42,9 +42,12 @@ from pathlib import Path
 
 SERVER_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SERVER_DIR.parent
-DATA_DIR = SERVER_DIR / "data"
 SITE_DATA_DIR = ROOT_DIR / "data"
-CONFIG_PATH = SERVER_DIR / "config.json"
+
+# Настройки и данные можно вынести из папки проекта: на хостинге каталог
+# приложения часто только для чтения, а конфигурацию монтируют отдельно.
+CONFIG_PATH = Path(os.environ.get("ADMIN_CONFIG") or (SERVER_DIR / "config.json"))
+DATA_DIR = Path(os.environ.get("ADMIN_DATA") or (SERVER_DIR / "data"))
 
 DEFAULT_LOGIN = "admin"
 DEFAULT_PASSWORD = "somnoilegko"
@@ -109,6 +112,11 @@ def write_json(path: Path, payload) -> None:
 DEFAULT_CONFIG = {
     "host": "127.0.0.1",
     "port": 8787,
+    # На хостинге сервер обычно стоит за обратным прокси: тогда включите,
+    # чтобы адрес клиента и признак HTTPS читались из заголовков прокси.
+    "trustProxy": False,
+    # Пометить сессионную куку Secure, даже если признак HTTPS недоступен.
+    "forceSecureCookie": False,
     "telegram": {
         # Токен бота от @BotFather. Оставьте пустым — панель честно скажет,
         # что отправка недоступна, и продолжит работать с черновиками.
@@ -544,7 +552,35 @@ class Handler(BaseHTTPRequestHandler):
         return session
 
     def client_ip(self) -> str:
+        # За обратным прокси все запросы приходят с одного адреса, поэтому
+        # без разбора X-Forwarded-For блокировка перебора закрыла бы вход всем.
+        if CONFIG.get("trustProxy"):
+            forwarded = self.headers.get("X-Forwarded-For")
+            if forwarded:
+                first = forwarded.split(",")[0].strip()
+                if first:
+                    return first
         return self.client_address[0] if self.client_address else "unknown"
+
+    def is_secure(self) -> bool:
+        """HTTPS обычно завершается на прокси, поэтому смотрим и заголовок."""
+        if CONFIG.get("trustProxy"):
+            proto = (self.headers.get("X-Forwarded-Proto") or "").split(",")[0].strip()
+            if proto:
+                return proto.lower() == "https"
+        return bool(CONFIG.get("forceSecureCookie"))
+
+    def session_cookie(self, token: str, max_age: int) -> str:
+        parts = [
+            f"{SESSION_COOKIE}={token}",
+            "Path=/",
+            "HttpOnly",
+            "SameSite=Strict",
+            f"Max-Age={max_age}",
+        ]
+        if self.is_secure():
+            parts.append("Secure")
+        return "; ".join(parts)
 
     # ── маршрутизация ──
 
@@ -727,9 +763,7 @@ class Handler(BaseHTTPRequestHandler):
 
             reset_failures(ip)
             token, ttl = create_session(CONFIG["auth"]["login"], remember)
-            cookie = (
-                f"{SESSION_COOKIE}={token}; Path=/; HttpOnly; SameSite=Strict; Max-Age={ttl}"
-            )
+            cookie = self.session_cookie(token, ttl)
             log(f"Вход выполнен: {CONFIG['auth']['login']}")
             self.send_json(
                 {
@@ -745,8 +779,7 @@ class Handler(BaseHTTPRequestHandler):
             if token:
                 SESSIONS.pop(token, None)
                 persist_sessions()
-            cookie = f"{SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0"
-            self.send_json({"ok": True}, cookie=cookie)
+            self.send_json({"ok": True}, cookie=self.session_cookie("", 0))
             return
 
         if action == "password" and method == "POST":
@@ -779,9 +812,7 @@ class Handler(BaseHTTPRequestHandler):
             SESSIONS.clear()
             persist_sessions()
             token, ttl = create_session(CONFIG["auth"]["login"], False)
-            cookie = (
-                f"{SESSION_COOKIE}={token}; Path=/; HttpOnly; SameSite=Strict; Max-Age={ttl}"
-            )
+            cookie = self.session_cookie(token, ttl)
             log("Пароль администратора изменён")
             self.send_json({"ok": True}, cookie=cookie)
             return
@@ -844,7 +875,11 @@ class Handler(BaseHTTPRequestHandler):
 
 class Server(ThreadingHTTPServer):
     daemon_threads = True
-    allow_reuse_address = True
+
+    # В Windows SO_REUSEADDR позволяет второму процессу «занять» уже занятый
+    # порт: запуск проходит молча, а запросы продолжает получать старый
+    # экземпляр — со старыми настройками и данными. Лучше честно упасть.
+    allow_reuse_address = os.name != "nt"
 
 
 # ──────────────────────────── Запуск ────────────────────────────
@@ -886,7 +921,14 @@ def main() -> None:
     host = os.environ.get("ADMIN_HOST", CONFIG.get("host", "127.0.0.1"))
     port = int(os.environ.get("ADMIN_PORT", CONFIG.get("port", 8787)))
 
-    with Server((host, port), Handler) as httpd:
+    try:
+        httpd_context = Server((host, port), Handler)
+    except OSError as error:
+        log(f"Порт {port} занят — вероятно, сервер панели уже запущен ({error})")
+        log("Закройте прежнее окно сервера или укажите другой порт: ADMIN_PORT")
+        raise SystemExit(1)
+
+    with httpd_context as httpd:
         log("Сервер панели «Сомной_легко» запущен")
         log(f"Сайт:   http://{host}:{port}/")
         log(f"Панель: http://{host}:{port}/admin")

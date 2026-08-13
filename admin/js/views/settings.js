@@ -100,6 +100,13 @@
 
   function modeCard() {
     const isServer = Store.state.mode === "server";
+    const host = window.location.hostname;
+    const isStaticHost =
+      !isServer &&
+      window.location.protocol.startsWith("http") &&
+      host !== "localhost" &&
+      host !== "127.0.0.1" &&
+      host !== "[::1]";
 
     return card({
       title: "Режим работы",
@@ -135,6 +142,15 @@
                   "python server/app.py — после этого панель открывается по адресу " +
                   "http://localhost:8787/admin и всё сохраняется автоматически.",
               }),
+              isStaticHost
+                ? h("p", {
+                    text:
+                      "Панель открыта на публичном адресе, а он раздаёт только готовые " +
+                      "файлы: серверную часть там запустить нельзя, поэтому режим " +
+                      "остаётся локальным. Чтобы панель работала на домене полностью, " +
+                      "сервер панели должен быть размещён на хостинге с Python.",
+                  })
+                : null,
             ]),
         Admin.Crypto.isStrong
           ? null

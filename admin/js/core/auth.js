@@ -8,8 +8,10 @@
  * подписанный случайный токен с ограниченным сроком жизни. Есть защита от
  * перебора и автоматический выход при долгом бездействии.
  *
- * Учётные данные по умолчанию: admin / somnoilegko.
- * Панель настойчиво просит сменить их до начала работы.
+ * Пароля по умолчанию в локальном режиме нет: панель может быть открыта на
+ * публичном адресе, поэтому при первом входе доступ создаётся вручную.
+ * Пароль из коробки остаётся только у серверной части, где его меняют сразу
+ * после установки.
  */
 
 window.Admin = window.Admin || {};
@@ -31,9 +33,12 @@ Admin.Auth = (function () {
   const MAX_ATTEMPTS = 5;
   const LOCKOUT_MS = 30 * 1000;
 
+  const MIN_PASSWORD = 8;
+
   let mode = "local";
   let currentUser = null;
   let usesDefaultPassword = false;
+  let needsSetup = false;
   let idleTimer = 0;
   const idleHandlers = new Set();
 
@@ -74,19 +79,62 @@ Admin.Auth = (function () {
 
   /* ───────────────────── Локальные учётные данные ───────────────────── */
 
-  async function ensureCredentials() {
-    let record = read(window.localStorage, KEY_CREDENTIALS, null);
-    if (record && record.hash && record.salt) return record;
+  function readCredentials() {
+    const record = read(window.localStorage, KEY_CREDENTIALS, null);
+    return record && record.hash && record.salt ? record : null;
+  }
 
-    const hashed = await Admin.Crypto.hashPassword(DEFAULT_PASSWORD);
-    record = {
-      login: DEFAULT_LOGIN,
-      ...hashed,
-      isDefault: true,
-      updatedAt: new Date().toISOString(),
-    };
-    write(window.localStorage, KEY_CREDENTIALS, record);
+  async function ensureCredentials() {
+    const record = readCredentials();
+    if (!record) {
+      throw new Error(
+        "Доступ для этого браузера ещё не создан. Задайте логин и пароль на экране входа."
+      );
+    }
     return record;
+  }
+
+  /**
+   * Создаёт локальный доступ при первом входе.
+   *
+   * Пароль не приходит из коробки: панель может быть открыта на публичном
+   * адресе, где известный пароль означал бы открытую дверь.
+   */
+  async function createCredentials(loginValue, password, remember) {
+    if (mode !== "local") {
+      throw new Error("В серверном режиме доступ задаётся в настройках сервера");
+    }
+    if (readCredentials()) {
+      throw new Error("Доступ для этого браузера уже создан");
+    }
+
+    const loginName = String(loginValue || "").trim();
+    if (loginName.length < 3) {
+      throw new Error("Логин должен быть не короче 3 символов");
+    }
+    if (String(password || "").length < MIN_PASSWORD) {
+      throw new Error(`Пароль должен быть не короче ${MIN_PASSWORD} символов`);
+    }
+
+    const hashed = await Admin.Crypto.hashPassword(password);
+    write(window.localStorage, KEY_CREDENTIALS, {
+      login: loginName,
+      ...hashed,
+      isDefault: false,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    });
+
+    if (!readCredentials()) {
+      throw new Error(
+        "Браузер не разрешил сохранить доступ. Разрешите сайту хранить данные " +
+          "или откройте панель локально."
+      );
+    }
+
+    needsSetup = false;
+    resetAttempts();
+    return login(loginName, password, remember);
   }
 
   function getAttempts() {
@@ -136,8 +184,9 @@ Admin.Auth = (function () {
     mode = detectedMode;
 
     if (mode === "local") {
-      const record = await ensureCredentials();
-      usesDefaultPassword = Boolean(record.isDefault);
+      const record = readCredentials();
+      needsSetup = !record;
+      usesDefaultPassword = Boolean(record && record.isDefault);
     }
 
     watchActivity();
@@ -195,6 +244,11 @@ Admin.Auth = (function () {
     if (attempts.until && attempts.until > Date.now()) {
       const seconds = Math.ceil((attempts.until - Date.now()) / 1000);
       throw new Error(`Слишком много попыток. Повторите через ${seconds} с.`);
+    }
+
+    if (!readCredentials()) {
+      needsSetup = true;
+      throw new Error("Доступ для этого браузера ещё не создан");
     }
 
     const record = await ensureCredentials();
@@ -289,10 +343,12 @@ Admin.Auth = (function () {
   return {
     DEFAULT_LOGIN,
     DEFAULT_PASSWORD,
+    MIN_PASSWORD,
     init,
     restore,
     login,
     logout,
+    createCredentials,
     changePassword,
     onIdle,
     touchIdle,
@@ -304,6 +360,9 @@ Admin.Auth = (function () {
     },
     get usesDefaultPassword() {
       return usesDefaultPassword;
+    },
+    get needsSetup() {
+      return needsSetup;
     },
   };
 })();

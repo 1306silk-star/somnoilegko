@@ -17,7 +17,8 @@ for stream in (sys.stdout, sys.stderr):
         pass
 
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-BASE = "http://127.0.0.1:8787"
+# Адрес можно переопределить, если проверяемый экземпляр поднят на другом порту.
+BASE = os.environ.get("QA_BASE", "http://127.0.0.1:8787")
 SHOTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "screenshots")
 os.makedirs(SHOTS, exist_ok=True)
 

@@ -35,6 +35,40 @@ Admin.App = (function () {
     dom.form = document.getElementById("auth-form");
     dom.error = document.getElementById("auth-error");
     dom.hint = document.getElementById("auth-hint");
+    dom.authTitle = document.querySelector(".auth-form__title");
+    dom.authEyebrow = document.querySelector(".auth-form__eyebrow");
+    dom.authSubtitle = document.querySelector(".auth-form__subtitle");
+    dom.authSubmit = document.getElementById("auth-submit");
+    dom.authPassword = document.getElementById("auth-password");
+  }
+
+  /**
+   * Первый вход в локальном режиме: доступ создаётся руками.
+   *
+   * Пароля из коробки здесь нет — панель может быть открыта на публичном
+   * адресе, и известный пароль означал бы открытую дверь.
+   */
+  function applySetupMode() {
+    const setup = Admin.Auth.needsSetup;
+
+    Admin.UI.setText(dom.authEyebrow, setup ? "Первый запуск" : "Вход в систему");
+    Admin.UI.setText(dom.authTitle, setup ? "Создайте доступ" : "Панель управления");
+    Admin.UI.setText(
+      dom.authSubtitle,
+      setup
+        ? "Придумайте логин и пароль — они сохранятся только в этом браузере."
+        : "Введите логин и пароль администратора."
+    );
+    Admin.UI.setText(dom.authSubmit, setup ? "Создать доступ и войти" : "Войти");
+
+    dom.authPassword.setAttribute(
+      "autocomplete",
+      setup ? "new-password" : "current-password"
+    );
+    dom.authPassword.setAttribute(
+      "placeholder",
+      setup ? `Не короче ${Admin.Auth.MIN_PASSWORD} символов` : ""
+    );
   }
 
   /* ───────────────────── Экраны ───────────────────── */
@@ -242,12 +276,15 @@ Admin.App = (function () {
       const login = document.getElementById("auth-login").value.trim();
       const remember = document.getElementById("auth-remember").checked;
 
+      const setup = Admin.Auth.needsSetup;
+
       dom.error.hidden = true;
       submit.disabled = true;
-      submit.textContent = "Проверяем…";
+      submit.textContent = setup ? "Создаём…" : "Проверяем…";
 
       try {
-        await Admin.Auth.login(login, password.value, remember);
+        if (setup) await Admin.Auth.createCredentials(login, password.value, remember);
+        else await Admin.Auth.login(login, password.value, remember);
         password.value = "";
         await enterApp();
       } catch (error) {
@@ -257,7 +294,9 @@ Admin.App = (function () {
         password.select();
       } finally {
         submit.disabled = false;
-        submit.textContent = "Войти";
+        // Подпись кнопки зависит от того, создан ли доступ: неудачный вход
+        // мог обнаружить, что его ещё нет.
+        applySetupMode();
       }
     });
   }
@@ -301,17 +340,19 @@ Admin.App = (function () {
     const serverAvailable = await Admin.Api.probe();
     const mode = serverAvailable ? "server" : "local";
 
-    Admin.UI.setText(
-      dom.hint,
-      serverAvailable
-        ? "Панель подключена к серверу. Данные и публикация — на стороне сервера."
-        : "Сервер не найден: панель работает с данными этого браузера. " +
-            `Первый вход — ${Admin.Auth.DEFAULT_LOGIN} / ${Admin.Auth.DEFAULT_PASSWORD}, ` +
-            "смените пароль сразу после входа."
-    );
-
     try {
       const user = await Admin.Auth.init(mode);
+
+      Admin.UI.setText(
+        dom.hint,
+        serverAvailable
+          ? "Панель подключена к серверу. Данные и публикация — на стороне сервера."
+          : "Сервер панели не найден. Здесь можно готовить правки и смотреть " +
+              "предпросмотр, но они останутся в этом браузере: чтобы изменения " +
+              "увидели посетители, нужен запущенный сервер панели."
+      );
+      applySetupMode();
+
       if (user) await enterApp();
       else showAuth();
     } catch (error) {
