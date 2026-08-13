@@ -61,6 +61,7 @@
     <link rel="stylesheet" href="css/components/about.css" />
     <link rel="stylesheet" href="css/components/results.css" />
     <link rel="stylesheet" href="css/components/roadmap.css" />
+    <link rel="stylesheet" href="css/components/testimonials.css" />
     <link rel="stylesheet" href="css/components/faq.css" />
     <link rel="stylesheet" href="css/components/cta.css" />
     <link rel="stylesheet" href="css/components/footer.css" />
@@ -77,7 +78,12 @@
           Сомной<span class="site-logo__underscore">_</span>легко
         </a>
 
-        <nav class="site-nav" aria-label="Основная навигация">
+        <nav
+          class="site-nav"
+          aria-label="Основная навигация"
+          data-cms-list="nav"
+          data-cms-link-class="site-nav__link"
+        >
           <a class="site-nav__link" href="#tasks" data-nav-link>Задачи</a>
           <a class="site-nav__link" href="#tools" data-nav-link>Инструменты</a>
           <a class="site-nav__link" href="#projects" data-nav-link>Проекты</a>
@@ -93,6 +99,8 @@
             href="https://t.me/somnoi_legko"
             target="_blank"
             rel="noopener noreferrer"
+            data-cms="header.ctaLabel"
+            data-cms-attr="href:header.ctaHref"
           >
             Записаться на бесплатную консультацию
           </a>
@@ -120,7 +128,11 @@
       aria-label="Мобильная навигация"
       aria-hidden="true"
     >
-      <div class="mobile-menu__nav">
+      <div
+        class="mobile-menu__nav"
+        data-cms-list="nav"
+        data-cms-link-class="mobile-menu__link"
+      >
         <a class="mobile-menu__link" href="#tasks" data-nav-link>Задачи</a>
         <a class="mobile-menu__link" href="#tools" data-nav-link>Инструменты</a>
         <a class="mobile-menu__link" href="#projects" data-nav-link>Проекты</a>
@@ -133,6 +145,8 @@
         href="https://t.me/somnoi_legko"
         target="_blank"
         rel="noopener noreferrer"
+        data-cms="header.ctaLabel"
+        data-cms-attr="href:header.ctaHref"
       >
         Записаться на бесплатную консультацию
       </a>
@@ -149,7 +163,7 @@
           <div class="hero__grid">
             <div class="hero__content">
               <p class="eyebrow hero__eyebrow">
-                <span class="hero__eyebrow-name">Ирина Андреева</span>
+                <span class="hero__eyebrow-name" data-cms="hero.eyebrow">Ирина Андреева</span>
               </p>
 
               <h1 class="hero__title" id="hero-title">
@@ -164,10 +178,17 @@
                 </span>
               </h1>
 
-              <p class="hero__tagline">Сайты. AI. Автоматизация.</p>
+              <p class="hero__tagline" data-cms="hero.tagline">Сайты. AI. Автоматизация.</p>
 
               <div class="hero__actions">
-                <a class="btn btn--hero btn--hero-primary" data-magnetic href="#projects" data-nav-link>
+                <a
+                  class="btn btn--hero btn--hero-primary"
+                  data-magnetic
+                  href="#projects"
+                  data-nav-link
+                  data-cms="hero.primaryLabel"
+                  data-cms-attr="href:hero.primaryHref"
+                >
                   Посмотреть проекты
                 </a>
                 <a
@@ -176,6 +197,8 @@
                   href="https://t.me/somnoi_legko"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cms="hero.secondaryLabel"
+                  data-cms-attr="href:hero.secondaryHref"
                 >
                   Обсудить задачу
                 </a>
@@ -192,8 +215,9 @@
                   width="900"
                   height="1125"
                   fetchpriority="high"
+                  data-cms-attr="src:hero.photo,alt:hero.photoAlt"
                 />
-                <span class="hero__label-float">Сомной_легко</span>
+                <span class="hero__label-float" data-cms="hero.badge">Сомной_легко</span>
                 <svg class="hero__motif brand-motif" viewBox="0 0 48 24" aria-hidden="true">
                   <path class="motif-stroke" d="M4 20 Q24 2 44 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
                 </svg>
@@ -207,11 +231,11 @@
       <section class="section what-i-do" id="what-i-do" aria-labelledby="what-i-do-title">
         <div class="container">
           <header class="section-header reveal">
-            <p class="section-header__label">Направления</p>
-            <h2 class="section-header__title" id="what-i-do-title">Что я делаю</h2>
+            <p class="section-header__label" data-cms="whatIDo.label">Направления</p>
+            <h2 class="section-header__title" id="what-i-do-title" data-cms="whatIDo.title">Что я делаю</h2>
           </header>
 
-          <div class="what-i-do__grid reveal-stagger">
+          <div class="what-i-do__grid reveal-stagger" data-cms-list="whatIDo">
             <article class="what-i-do__item what-i-do__item--featured">
               <span class="what-i-do__label">01</span>
               <h3 class="what-i-do__name">Лендинги</h3>
@@ -254,16 +278,16 @@
           <div class="recognize__grid reveal-clip">
             <div class="recognize__intro">
               <div class="section-divider"></div>
-              <h2 class="recognize__title" id="tasks-title">
+              <h2 class="recognize__title" id="tasks-title" data-cms="recognize.title">
                 Задачи копятся, а&nbsp;разобраться с&nbsp;AI всё некогда?
               </h2>
-              <p class="recognize__conclusion">
+              <p class="recognize__conclusion" data-cms="recognize.conclusion">
                 Необязательно становиться программистом.<br />
                 Важно понять, какую задачу вы&nbsp;хотите решить.
               </p>
             </div>
 
-            <ul class="recognize__list">
+            <ul class="recognize__list" data-cms-list="recognize">
               <li class="recognize__item reveal reveal--delay-1">
                 <span class="recognize__icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-mail"/></svg></span>
                 <span>Нужно написать письмо или ответ клиенту</span>
@@ -309,17 +333,17 @@
 
           <div class="simplify reveal">
             <header class="section-header section-header--center section-header--wide">
-              <p class="section-header__label">Что можно упростить</p>
-              <h3 class="section-header__title">Две области, где AI действительно помогает</h3>
+              <p class="section-header__label" data-cms="simplify.label">Что можно упростить</p>
+              <h3 class="section-header__title" data-cms="simplify.title">Две области, где AI действительно помогает</h3>
             </header>
 
             <div class="simplify__zones">
               <article class="simplify__zone simplify__zone--work reveal">
                 <div class="simplify__zone-header">
                   <span class="simplify__zone-icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-briefcase"/></svg></span>
-                  <h4 class="simplify__zone-title">Для работы</h4>
+                  <h4 class="simplify__zone-title" data-cms="simplify.work.title">Для работы</h4>
                 </div>
-                <div class="simplify__tasks">
+                <div class="simplify__tasks" data-cms-list="simplifyTasks" data-cms-zone="work">
                   <span class="simplify__task">Письма и ответы клиентам</span>
                   <span class="simplify__task">Идеи и черновики публикаций</span>
                   <span class="simplify__task">Контент-планы</span>
@@ -331,7 +355,14 @@
                   <span class="simplify__task">Структурирование информации</span>
                   <span class="simplify__task">Простые сайты и мини-сервисы</span>
                 </div>
-                <a class="btn btn--secondary simplify__zone-action" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                <a
+                  class="btn btn--secondary simplify__zone-action"
+                  href="https://t.me/somnoi_legko"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cms="simplify.work.ctaLabel"
+                  data-cms-attr="href:simplify.work.ctaHref"
+                >
                   Хочу упростить рабочую задачу
                 </a>
               </article>
@@ -339,9 +370,9 @@
               <article class="simplify__zone simplify__zone--life reveal reveal--delay-1">
                 <div class="simplify__zone-header">
                   <span class="simplify__zone-icon" aria-hidden="true"><svg><use href="assets/icons.svg#icon-home"/></svg></span>
-                  <h4 class="simplify__zone-title">Для жизни</h4>
+                  <h4 class="simplify__zone-title" data-cms="simplify.life.title">Для жизни</h4>
                 </div>
-                <div class="simplify__tasks">
+                <div class="simplify__tasks" data-cms-list="simplifyTasks" data-cms-zone="life">
                   <span class="simplify__task">Личный и семейный бюджет</span>
                   <span class="simplify__task">Планирование поездок</span>
                   <span class="simplify__task">Изучение иностранных языков</span>
@@ -353,7 +384,14 @@
                   <span class="simplify__task">Организация идей</span>
                   <span class="simplify__task">Повседневные решения</span>
                 </div>
-                <a class="btn btn--secondary simplify__zone-action" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                <a
+                  class="btn btn--secondary simplify__zone-action"
+                  href="https://t.me/somnoi_legko"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cms="simplify.life.ctaLabel"
+                  data-cms-attr="href:simplify.life.ctaHref"
+                >
                   Хочу упростить задачу для жизни
                 </a>
               </article>
@@ -366,12 +404,12 @@
       <section class="section section--alt routes" id="start" aria-labelledby="start-title">
         <div class="container">
           <header class="section-header section-header--center reveal">
-            <p class="section-header__label">С чего начать</p>
-            <h2 class="section-header__title" id="start-title">Три понятных маршрута</h2>
-            <p class="section-header__subtitle">Выберите то, что ближе к вашей ситуации прямо сейчас</p>
+            <p class="section-header__label" data-cms="routes.label">С чего начать</p>
+            <h2 class="section-header__title" id="start-title" data-cms="routes.title">Три понятных маршрута</h2>
+            <p class="section-header__subtitle" data-cms="routes.subtitle">Выберите то, что ближе к вашей ситуации прямо сейчас</p>
           </header>
 
-          <div class="routes__grid reveal-stagger">
+          <div class="routes__grid reveal-stagger" data-cms-list="routes">
             <article class="route-card route-card--featured" data-spotlight data-tilt>
               <span class="route-card__number">01</span>
               <h3 class="route-card__title">Мне нужно разобраться</h3>
@@ -410,14 +448,14 @@
       <section class="section projects" id="tools" aria-labelledby="tools-title">
         <div class="container">
           <header class="section-header reveal-clip">
-            <p class="section-header__label">Инструменты</p>
-            <h2 class="section-header__title" id="tools-title">Инструменты для работы и жизни</h2>
-            <p class="section-header__subtitle">
+            <p class="section-header__label" data-cms="projects.label">Инструменты</p>
+            <h2 class="section-header__title" id="tools-title" data-cms="projects.title">Инструменты для работы и жизни</h2>
+            <p class="section-header__subtitle" data-cms="projects.subtitle">
               Начинаю с небольших понятных решений, которые можно открыть и использовать прямо в браузере.
             </p>
           </header>
 
-          <div class="projects__list" id="projects">
+          <div class="projects__list" id="projects" data-cms-list="projects">
             <article class="project-case project-case--work reveal reveal--scale" data-spotlight data-tilt>
               <div class="project-case__content">
                 <span class="project-case__category">Для работы</span>
@@ -529,17 +567,17 @@
       <section class="section section--alt approach" id="process" aria-labelledby="approach-title">
         <div class="container">
           <header class="section-header section-header--center reveal">
-            <p class="section-header__label">Подход</p>
+            <p class="section-header__label" data-cms="approach.label">Подход</p>
             <h2 class="section-header__title sr-only" id="approach-title">Мой подход</h2>
           </header>
 
-          <div class="approach__manifesto reveal" aria-hidden="false">
+          <div class="approach__manifesto reveal" aria-hidden="false" data-cms-list="manifesto">
             <p class="approach__line reveal">Быстро.</p>
             <p class="approach__line approach__line--accent reveal reveal--delay-1">Красиво.</p>
             <p class="approach__line reveal reveal--delay-2">Точно.</p>
           </div>
 
-          <div class="approach__steps">
+          <div class="approach__steps" data-cms-list="approachSteps">
             <article class="approach-step reveal">
               <span class="approach-step__number">01</span>
               <p class="approach-step__text">Вы рассказываете о задаче</p>
@@ -563,7 +601,7 @@
           </div>
 
           <blockquote class="approach__quote reveal">
-            <p class="approach__quote-text">
+            <p class="approach__quote-text" data-cms="approach.quote">
               Технология должна облегчать жизнь, а&nbsp;не&nbsp;становиться новой сложной обязанностью.
             </p>
           </blockquote>
@@ -584,13 +622,14 @@
                   width="800"
                   height="800"
                   loading="lazy"
+                  data-cms-attr="src:about.photo,alt:about.photoAlt"
                 />
               </div>
             </div>
 
-            <div class="about__content reveal reveal--delay-1">
+            <div class="about__content reveal reveal--delay-1" data-cms-list="aboutText">
               <div class="section-divider"></div>
-              <h2 class="about__title" id="about-title">
+              <h2 class="about__title" id="about-title" data-cms="about.title">
                 Я сама прошла путь от «ничего не понимаю» до&nbsp;собственных цифровых проектов
               </h2>
               <p class="about__text">
@@ -602,7 +641,7 @@
               <p class="about__text">
                 Моя сильная сторона&nbsp;— объяснять спокойно, понятно и&nbsp;пошагово. Именно поэтому появился бренд «Сомной_легко».
               </p>
-              <div class="about__facts">
+              <div class="about__facts" data-cms-list="aboutFacts">
                 <span class="about__fact">AI с 2023 года</span>
                 <span class="about__fact">Опыт собственного бизнеса</span>
                 <span class="about__fact">Обучение и практика</span>
@@ -618,15 +657,15 @@
       <section class="section section--alt results" id="results" aria-labelledby="results-title">
         <div class="container">
           <header class="section-header reveal">
-            <p class="section-header__label">Результаты</p>
-            <h2 class="section-header__title" id="results-title">Первые результаты</h2>
+            <p class="section-header__label" data-cms="cases.label">Результаты</p>
+            <h2 class="section-header__title" id="results-title" data-cms="cases.title">Первые результаты</h2>
           </header>
 
-          <p class="results__intro reveal">
+          <p class="results__intro reveal" data-cms="cases.intro">
             Это новое направление, которое развивается на&nbsp;основе практического обучения, предпринимательского опыта и&nbsp;собственных работающих проектов.
           </p>
 
-          <div class="results__timeline">
+          <div class="results__timeline" data-cms-list="cases">
             <article class="result-item reveal">
               <h3 class="result-item__title">Первый опубликованный помощник для контента</h3>
               <p class="result-item__text">Работает в браузере, бесплатно и без регистрации — можно попробовать прямо сейчас.</p>
@@ -652,29 +691,38 @@
             </article>
           </div>
 
-          <p class="results__note reveal">
+          <p class="results__note reveal" data-cms="cases.note">
             Это честный старт нового направления. Я показываю реальные проекты, а&nbsp;не&nbsp;обещаю то, чего пока нет.
           </p>
         </div>
       </section>
 
       <!--
-        БЛОК «ОТЗЫВЫ» — скрыт до появления реальных отзывов
-        <section class="section testimonials" id="testimonials" hidden>
-          ...
-        </section>
+        ОТЗЫВЫ — секция появляется автоматически, как только в админ-панели
+        будет опубликован хотя бы один отзыв. Пустых карточек на сайте не бывает.
       -->
+      <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title" hidden>
+        <div class="container">
+          <header class="section-header section-header--center reveal">
+            <p class="section-header__label" data-cms="testimonials.label">Отзывы</p>
+            <h2 class="section-header__title" id="testimonials-title" data-cms="testimonials.title">Что говорят люди</h2>
+            <p class="section-header__subtitle" data-cms="testimonials.subtitle"></p>
+          </header>
+
+          <div class="testimonials__grid" data-cms-list="testimonials"></div>
+        </div>
+      </section>
 
       <!-- СКОРО -->
       <section class="section section--dark roadmap" id="soon" aria-labelledby="soon-title">
         <div class="container">
           <header class="section-header section-header--center reveal">
-            <p class="section-header__label">В планах</p>
-            <h2 class="section-header__title" id="soon-title">Что появится дальше</h2>
-            <p class="section-header__subtitle">Новые инструменты, над которыми я работаю или планирую работать</p>
+            <p class="section-header__label" data-cms="roadmap.label">В планах</p>
+            <h2 class="section-header__title" id="soon-title" data-cms="roadmap.title">Что появится дальше</h2>
+            <p class="section-header__subtitle" data-cms="roadmap.subtitle">Новые инструменты, над которыми я работаю или планирую работать</p>
           </header>
 
-          <div class="roadmap__grid">
+          <div class="roadmap__grid" data-cms-list="roadmap">
             <article class="roadmap-card reveal">
               <span class="roadmap-card__status roadmap-card__status--planned">Запланировано</span>
               <h3 class="roadmap-card__title">Библиотека проверенных промптов</h3>
@@ -702,7 +750,14 @@
           </div>
 
           <div class="roadmap__cta reveal">
-            <a class="btn btn--secondary btn--lg" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+            <a
+              class="btn btn--secondary btn--lg"
+              href="https://t.me/somnoi_legko"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cms="roadmap.ctaLabel"
+              data-cms-attr="href:roadmap.ctaHref"
+            >
               Следить за новыми инструментами
             </a>
           </div>
@@ -713,11 +768,11 @@
       <section class="section faq" id="faq" aria-labelledby="faq-title">
         <div class="container">
           <header class="section-header section-header--center reveal">
-            <p class="section-header__label">Вопросы</p>
-            <h2 class="section-header__title" id="faq-title">Часто задаваемые вопросы</h2>
+            <p class="section-header__label" data-cms="faq.label">Вопросы</p>
+            <h2 class="section-header__title" id="faq-title" data-cms="faq.title">Часто задаваемые вопросы</h2>
           </header>
 
-          <div class="faq__list">
+          <div class="faq__list" data-cms-list="faq">
             <article class="faq-item reveal">
               <button class="faq-item__trigger" type="button" aria-expanded="false">
                 <span>Я совсем не разбираюсь в искусственном интеллекте. Мне подойдёт?</span>
@@ -822,18 +877,32 @@
         <div class="container">
           <div class="cta__grid">
             <div class="cta__content reveal">
-              <h2 class="cta__title" id="cta-title">Расскажите, какая задача отнимает у&nbsp;вас время</h2>
-              <p class="cta__text">
+              <h2 class="cta__title" id="cta-title" data-cms="contacts.title">Расскажите, какая задача отнимает у&nbsp;вас время</h2>
+              <p class="cta__text" data-cms="contacts.text">
                 На бесплатной консультации мы разберёмся, можно ли облегчить её с&nbsp;помощью AI и&nbsp;с&nbsp;чего лучше начать.
               </p>
               <div class="cta__actions">
-                <a class="btn btn--primary btn--lg btn--shine" data-magnetic href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                <a
+                  class="btn btn--primary btn--lg btn--shine"
+                  data-magnetic
+                  href="https://t.me/somnoi_legko"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cms="contacts.primaryLabel"
+                  data-cms-attr="href:contacts.primaryHref"
+                >
                   Записаться на бесплатную консультацию
                 </a>
-                <button class="btn btn--secondary" type="button" data-contact-modal-open>
+                <button class="btn btn--secondary" type="button" data-contact-modal-open data-cms="contacts.modalLabel">
                   Написать мне
                 </button>
-                <a class="btn btn--secondary" href="#tools" data-nav-link>
+                <a
+                  class="btn btn--secondary"
+                  href="#tools"
+                  data-nav-link
+                  data-cms="contacts.tertiaryLabel"
+                  data-cms-attr="href:contacts.tertiaryHref"
+                >
                   Посмотреть инструменты
                 </a>
               </div>
@@ -849,6 +918,7 @@
                   width="800"
                   height="1000"
                   loading="lazy"
+                  data-cms-attr="src:contacts.photo,alt:contacts.photoAlt"
                 />
               </div>
             </div>
@@ -865,15 +935,15 @@
             <p class="site-footer__logo">
               Сомной<span class="site-footer__logo-underscore">_</span>легко
             </p>
-            <p class="site-footer__tagline">
+            <p class="site-footer__tagline" data-cms="footer.tagline">
               Ирина Андреева<br />
               Помогаю использовать искусственный интеллект в&nbsp;работе и&nbsp;жизни.
             </p>
           </div>
 
           <div>
-            <p class="site-footer__heading">Ссылки</p>
-            <nav class="site-footer__links" aria-label="Ссылки в футере">
+            <p class="site-footer__heading" data-cms="footer.linksHeading">Ссылки</p>
+            <nav class="site-footer__links" aria-label="Ссылки в футере" data-cms-list="footerLinks">
               <a class="site-footer__link" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">Telegram</a>
               <a class="site-footer__link" href="https://github.com/1306silk-star" target="_blank" rel="noopener noreferrer">GitHub</a>
               <a class="site-footer__link" href="#tools" data-nav-link>Инструменты</a>
@@ -883,7 +953,7 @@
           </div>
         </div>
 
-        <p class="site-footer__bottom">
+        <p class="site-footer__bottom" data-cms="footer.bottom">
           © 2026 Сомной_легко · Ирина Андреева
         </p>
       </div>
@@ -910,8 +980,8 @@
           ×
         </button>
 
-        <h2 class="contact-modal__title" id="contact-modal-title">Написать мне</h2>
-        <p class="contact-modal__subtitle">
+        <h2 class="contact-modal__title" id="contact-modal-title" data-cms="contacts.modalTitle">Написать мне</h2>
+        <p class="contact-modal__subtitle" data-cms="contacts.modalSubtitle">
           Оставьте контакты — я свяжусь с вами и помогу разобраться с задачей.
         </p>
 
@@ -974,14 +1044,18 @@
             <span class="contact-form__error" role="alert"></span>
           </div>
 
-          <button class="btn btn--primary contact-form__submit" type="submit">
+          <button class="btn btn--primary contact-form__submit" type="submit" data-cms="contacts.modalSubmitLabel">
             Отправить
           </button>
         </form>
       </div>
     </div>
 
+    <!-- Контент из админ-панели. Подключается до остальных скриптов,
+         чтобы анимации и эффекты инициализировались на готовой разметке. -->
+    <script src="data/content.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/content-sync.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/accordion.js"></script>
     <script src="js/scroll-reveal.js"></script>

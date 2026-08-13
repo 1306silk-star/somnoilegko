@@ -1,0 +1,17 @@
+# Локальные данные панели управления: пароли, токены, сессии, черновики
+server/config.json
+server/data/
+
+# Резервная копия контента, создаваемая при публикации
+data/content.backup.js
+
+# Скриншоты автоматических проверок
+tools/qa/screenshots/
+
+# Байт-код Python
+__pycache__/
+*.pyc
+
+# Системное
+Thumbs.db
+.DS_Store

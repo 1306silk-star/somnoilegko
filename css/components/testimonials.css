@@ -1,0 +1,84 @@
+/**
+ * Блок «Отзывы»
+ * Секция появляется только тогда, когда в админ-панели есть опубликованные отзывы.
+ */
+
+.testimonials__grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.testimonial-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-6) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* Кавычка как тихий типографский акцент, а не декоративная иконка */
+.testimonial-card::before {
+  content: "«";
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-5);
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--color-accent);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.testimonial-card__text {
+  position: relative;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+.testimonial-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.testimonial-card__name {
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+}
+
+.testimonial-card__role {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
