@@ -87,13 +87,24 @@ def log(message: str) -> None:
     print(f"[{stamp}] {message}", flush=True)
 
 
-def read_json(path: Path, fallback):
+class ConfigError(Exception):
+    """Настройки существуют, но прочитать их не удалось."""
+
+
+def read_json(path: Path, fallback, strict: bool = False):
+    """Читает JSON, прощая BOM: его добавляют Блокнот и PowerShell.
+
+    Со strict=True ошибка чтения не заменяется значением по умолчанию: файл
+    с паролем и токенами нельзя молча перезаписать.
+    """
     try:
-        with path.open("r", encoding="utf-8") as handle:
+        with path.open("r", encoding="utf-8-sig") as handle:
             return json.load(handle)
     except FileNotFoundError:
         return fallback
-    except (json.JSONDecodeError, OSError) as error:
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError) as error:
+        if strict:
+            raise ConfigError(f"{path}: {error}") from error
         log(f"Не удалось прочитать {path.name}: {error}")
         return fallback
 
@@ -137,7 +148,7 @@ DEFAULT_CONFIG = {
 
 
 def load_config() -> dict:
-    config = read_json(CONFIG_PATH, {})
+    config = read_json(CONFIG_PATH, {}, strict=True)
     merged = json.loads(json.dumps(DEFAULT_CONFIG))
 
     for key, value in (config or {}).items():
@@ -245,7 +256,13 @@ def reset_failures(ip: str) -> None:
 
 # Конфигурация читается после объявления функций хеширования: при первом запуске
 # ей нужно создать хеш пароля по умолчанию.
-CONFIG = load_config()
+try:
+    CONFIG = load_config()
+except ConfigError as error:
+    log(f"Настройки не читаются — {error}")
+    log("Файл хранит пароль и токены, поэтому сервер не будет его перезаписывать.")
+    log("Исправьте JSON (частая причина — BOM или лишняя запятая) и запустите снова.")
+    raise SystemExit(1) from None
 
 
 # ──────────────────────────── Хранилище ────────────────────────────

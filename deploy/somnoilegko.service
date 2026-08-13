@@ -1,0 +1,34 @@
+[Unit]
+Description=Сайт и панель управления «Сомной_легко»
+Documentation=https://github.com/1306silk-star/somnoilegko/blob/main/ADMIN.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+Group=__USER__
+WorkingDirectory=__APP_DIR__
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONIOENCODING=utf-8
+Environment=ADMIN_HOST=127.0.0.1
+Environment=ADMIN_PORT=__PORT__
+Environment=ADMIN_CONFIG=__CONFIG_PATH__
+Environment=ADMIN_DATA=__DATA_DIR__
+ExecStart=/usr/bin/python3 __APP_DIR__/server/app.py
+Restart=always
+RestartSec=3
+
+# Приложение слушает только localhost — наружу его выводит nginx.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+# Контент сайта живёт в папке проекта, настройки и данные — отдельно.
+ReadWritePaths=__APP_DIR__/data __DATA_DIR__ __CONFIG_DIR__
+
+[Install]
+WantedBy=multi-user.target
