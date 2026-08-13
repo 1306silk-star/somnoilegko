@@ -184,7 +184,20 @@ Admin.Auth = (function () {
     mode = detectedMode;
 
     if (mode === "local") {
-      const record = readCredentials();
+      let record = readCredentials();
+
+      // Запись под паролем из коробки могла остаться от прежних версий панели.
+      // Известный пароль ничего не защищает, поэтому просим создать доступ заново.
+      if (record && record.isDefault) {
+        try {
+          window.localStorage.removeItem(KEY_CREDENTIALS);
+        } catch (error) {
+          console.warn("[auth] Не удалось удалить прежний доступ", error);
+        }
+        clearSession();
+        record = readCredentials();
+      }
+
       needsSetup = !record;
       usesDefaultPassword = Boolean(record && record.isDefault);
     }

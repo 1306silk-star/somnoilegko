@@ -49,10 +49,24 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *args) -> None:  # noqa: D102
         pass
 
+    def handle_one_request(self) -> None:
+        # Браузер закрывает соединения на выходе — это не ошибка прогона.
+        try:
+            super().handle_one_request()
+        except ConnectionError:
+            self.close_connection = True
+
+
+class QuietServer(socketserver.ThreadingTCPServer):
+    daemon_threads = True
+
+    def handle_error(self, request, client_address) -> None:
+        pass
+
 
 def serve() -> socketserver.TCPServer:
     handler = functools.partial(QuietHandler, directory=ROOT)
-    httpd = socketserver.TCPServer(("127.0.0.1", PORT), handler)
+    httpd = QuietServer(("127.0.0.1", PORT), handler)
     httpd.allow_reuse_address = True
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
     return httpd
@@ -200,8 +214,23 @@ def main() -> int:
               json.dumps(api_noise(browser), ensure_ascii=False)[:600])
         browser.screenshot(os.path.join(SHOTS, "static-site.png"))
 
-        # ─── 8. Локальные данные теста не остаются в браузере ───
+        # ─── 8. Доступ прежних версий под паролем из коробки сбрасывается ───
         browser.navigate(f"{BASE}/admin/", settle=2.0)
+        browser.js("""(() => {
+          const raw = localStorage.getItem('somnoilegko.admin.credentials');
+          const record = JSON.parse(raw);
+          record.isDefault = true;
+          localStorage.setItem('somnoilegko.admin.credentials', JSON.stringify(record));
+        })()""")
+        browser.navigate(f"{BASE}/admin/", settle=2.5)
+        check("доступ под паролем из коробки сброшен",
+              browser.js("Admin.Auth.needsSetup") is True)
+        check("прежняя запись удалена",
+              browser.js("localStorage.getItem('somnoilegko.admin.credentials')") is None)
+        check("вход требует нового доступа",
+              browser.js("!document.getElementById('auth-screen').hidden"))
+
+        # ─── 9. Локальные данные теста не остаются в браузере ───
         browser.js("localStorage.clear(); sessionStorage.clear();")
 
     finally:
