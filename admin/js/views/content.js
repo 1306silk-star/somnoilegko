@@ -99,7 +99,18 @@
             emptyText: "Акцентных слов нет",
           }),
           F.checkbox({ label: "Показывать тире после первой строки", path: "hero.showDash" }),
-          F.text({ label: "Подзаголовок", path: "hero.tagline", className: "mt-4" }),
+          F.text({
+            label: "Фирменная фраза",
+            path: "hero.promise",
+            hint: "Короткая мысль рядом с заголовком, например «Со мной — легко и понятно»",
+            className: "mt-4",
+          }),
+          F.textarea({
+            label: "Подзаголовок",
+            path: "hero.lead",
+            rows: 3,
+            hint: "Кто вы, чем занимаетесь и какой результат получает человек",
+          }),
         ],
       }),
       card({
@@ -151,19 +162,27 @@
           emptyText: "Направлений пока нет",
           itemTitle: (item) => item.name || "Без названия",
           renderItem: (item, index, api) =>
-            F.row("2", [
-              F.text({
-                label: "Название",
-                get: () => item.name,
-                set: (value) => api.update({ name: value }),
+            [
+              F.row("2", [
+                F.text({
+                  label: "Название",
+                  get: () => item.name,
+                  set: (value) => api.update({ name: value }),
+                }),
+                F.select({
+                  label: "Размер плитки",
+                  options: SIZE_OPTIONS,
+                  get: () => item.size || "normal",
+                  set: (value) => api.update({ size: value }),
+                }),
+              ]),
+              F.textarea({
+                label: "Короткое описание",
+                rows: 2,
+                get: () => item.text || "",
+                set: (value) => api.update({ text: value }),
               }),
-              F.select({
-                label: "Размер плитки",
-                options: SIZE_OPTIONS,
-                get: () => item.size || "normal",
-                set: (value) => api.update({ size: value }),
-              }),
-            ]),
+            ],
         }),
       ],
     });
@@ -369,6 +388,73 @@
     });
   }
 
+  /* ───────────────────── Лекс ───────────────────── */
+
+  function lexTab() {
+    return h("div", { class: "stack" }, [
+      callout("info", [
+        "Это главный актуальный кейс на сайте. Кнопка ведёт к Лексу. ",
+        "Telegram — канал взаимодействия, а не единственный способ описать продукт.",
+      ]),
+      card({
+        title: "Блок Лекса",
+        body: [
+          F.text({ label: "Надзаголовок", path: "lex.label" }),
+          F.text({ label: "Заголовок", path: "lex.title" }),
+          F.textarea({ label: "Основной текст", path: "lex.lead", rows: 5 }),
+          F.textarea({ label: "Пояснение про каналы", path: "lex.note", rows: 2 }),
+          F.repeater({
+            label: "Три пояснения рядом",
+            path: "lex.facts",
+            blank: () => ({ title: "", text: "" }),
+            addLabel: "Добавить пункт",
+            emptyText: "Пояснений пока нет",
+            itemTitle: (item) => item.title || "Без названия",
+            renderItem: (item, index, api) => [
+              F.text({
+                label: "Заголовок",
+                get: () => item.title,
+                set: (value) => api.update({ title: value }),
+              }),
+              F.textarea({
+                label: "Текст",
+                rows: 3,
+                get: () => item.text,
+                set: (value) => api.update({ text: value }),
+              }),
+            ],
+          }),
+          F.row("2", [
+            F.text({ label: "Основная кнопка", path: "lex.primaryLabel" }),
+            F.url({ label: "Ссылка основной кнопки", path: "lex.primaryHref" }),
+          ]),
+          F.row("2", [
+            F.text({ label: "Вторая кнопка", path: "lex.secondaryLabel" }),
+            F.text({ label: "Ссылка второй кнопки", path: "lex.secondaryHref" }),
+          ]),
+        ],
+      }),
+    ]);
+  }
+
+  /* ───────────────────── Навыки ───────────────────── */
+
+  function skillsTab() {
+    return card({
+      title: "Навыки",
+      subtitle: "Показывайте только подтверждённые умения",
+      body: [
+        F.text({ label: "Заголовок списка", path: "skills.label" }),
+        F.stringList({
+          label: "Навыки",
+          path: "skills.items",
+          addLabel: "Добавить навык",
+          emptyText: "Список навыков пуст",
+        }),
+      ],
+    });
+  }
+
   /* ───────────────────── Планы ───────────────────── */
 
   function roadmapTab() {
@@ -457,6 +543,8 @@
         { id: "hero", label: "Первый экран", render: heroTab },
         { id: "header", label: "Шапка и меню", render: headerTab },
         { id: "directions", label: "Направления", render: directionsTab },
+        { id: "skills", label: "Навыки", render: skillsTab },
+        { id: "lex", label: "Лекс", render: lexTab },
         { id: "tasks", label: "Задачи", render: tasksTab },
         { id: "routes", label: "Маршруты", render: routesTab },
         { id: "approach", label: "Подход", render: approachTab },

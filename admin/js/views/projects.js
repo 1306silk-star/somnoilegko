@@ -39,7 +39,7 @@
         actions: [
           h("a", {
             class: "btn btn--ghost btn--sm",
-            href: "../index.html?cms-preview=1#tools",
+            href: "../index.html?cms-preview=1#projects",
             target: "_blank",
             rel: "noopener",
             text: "Предпросмотр раздела",
@@ -76,12 +76,18 @@
                 get: () => item.title,
                 set: (value) => api.update({ title: value }),
               }),
-              F.text({
-                label: "Категория",
-                hint: "Подпись над названием, например «Для работы»",
-                get: () => item.category,
-                set: (value) => api.update({ category: value }),
-              }),
+            F.text({
+              label: "Категория",
+              hint: "Подпись над названием, например «Для работы»",
+              get: () => item.category,
+              set: (value) => api.update({ category: value }),
+            }),
+            F.text({
+              label: "Честный статус",
+              hint: "Например: «Практический мини-сервис». Не пишите «готовый продукт», если это не так.",
+              get: () => item.statusLabel || "",
+              set: (value) => api.update({ statusLabel: value }),
+            }),
             ]),
             F.textarea({
               label: "Задача",

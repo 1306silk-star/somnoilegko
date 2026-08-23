@@ -4,7 +4,8 @@
 
 /* ── Hero: начальное состояние (до JS) ── */
 .hero__eyebrow,
-.hero__tagline,
+.hero__promise,
+.hero__lead,
 .hero__actions,
 .hero__editorial {
   opacity: 0;
@@ -46,7 +47,8 @@
 
 /* ── Hero: после reveal ── */
 .hero__eyebrow.is-visible,
-.hero__tagline.is-visible,
+.hero__promise.is-visible,
+.hero__lead.is-visible,
 .hero__actions.is-visible,
 .hero__editorial.is-visible {
   opacity: 1;
@@ -78,7 +80,8 @@
 }
 
 .hero--done .hero__eyebrow,
-.hero--done .hero__tagline,
+.hero--done .hero__promise,
+.hero--done .hero__lead,
 .hero--done .hero__actions,
 .hero--done .hero__editorial,
 .hero--done .hero__word-text,
@@ -165,7 +168,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero__eyebrow,
-  .hero__tagline,
+  .hero__promise,
+  .hero__lead,
   .hero__actions,
   .hero__editorial {
     opacity: 1;

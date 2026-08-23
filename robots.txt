@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /server/
+Disallow: /deploy/
+Disallow: /tools/
+
+Sitemap: https://somnoilegko.ru/sitemap.xml

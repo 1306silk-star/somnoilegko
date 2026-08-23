@@ -84,7 +84,7 @@
 .about__text {
   font-size: var(--text-base);
   line-height: var(--leading-relaxed);
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .about__text + .about__text {

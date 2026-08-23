@@ -24,7 +24,25 @@
           ]),
           F.row("2", [
             F.url({ label: "Telegram", path: "site.telegram" }),
+            F.text({ label: "Подпись Telegram", path: "site.telegramHandle" }),
+          ]),
+          F.row("2", [
             F.url({ label: "GitHub", path: "site.github" }),
+            F.url({ label: "Лекс", path: "site.lexHref" }),
+          ]),
+          F.row("2", [
+            F.text({ label: "Email", path: "site.email" }),
+            F.text({ label: "Подпись Email", path: "site.emailLabel" }),
+          ]),
+          F.row("3", [
+            F.text({ label: "Латвия, подпись", path: "site.phoneLvLabel" }),
+            F.text({ label: "Латвия, номер", path: "site.phoneLv" }),
+            F.text({ label: "Пометка", path: "site.phoneLvNote" }),
+          ]),
+          F.row("3", [
+            F.text({ label: "Россия, подпись", path: "site.phoneRuLabel" }),
+            F.text({ label: "Россия, номер", path: "site.phoneRu" }),
+            F.text({ label: "Пометка", path: "site.phoneRuNote" }),
           ]),
         ],
       }),
@@ -42,15 +60,19 @@
         body: [
           F.text({ label: "Заголовок", path: "contacts.title" }),
           F.textarea({ label: "Текст", path: "contacts.text", rows: 3 }),
+          F.text({
+            label: "Заголовок списка контактов",
+            path: "contacts.directoryTitle",
+          }),
           F.row("2", [
             F.text({ label: "Основная кнопка", path: "contacts.primaryLabel" }),
             F.url({ label: "Ссылка основной кнопки", path: "contacts.primaryHref" }),
           ]),
           F.row("2", [
             F.text({ label: "Кнопка формы", path: "contacts.modalLabel" }),
-            F.text({ label: "Третья кнопка", path: "contacts.tertiaryLabel" }),
+            F.text({ label: "Кнопка Лекса", path: "contacts.lexLabel" }),
           ]),
-          F.text({ label: "Ссылка третьей кнопки", path: "contacts.tertiaryHref" }),
+          F.url({ label: "Ссылка на Лекса", path: "contacts.lexHref" }),
           F.row("2", [
             F.text({ label: "Файл фотографии", path: "contacts.photo" }),
             F.text({ label: "Альтернативный текст", path: "contacts.photoAlt" }),

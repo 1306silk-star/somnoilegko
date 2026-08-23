@@ -144,19 +144,20 @@
     if (!seo) return;
     if (seo.title) document.title = seo.title;
 
-    // Поля соцсетей необязательны: пустые подхватывают основной заголовок
-    // и описание, чтобы превью ссылки не расходилось с сайтом.
+    const siteUrl = (seo.canonical || "https://somnoilegko.ru/").replace(/\/?$/, "/");
     const ogTitle = seo.ogTitle || seo.title;
     const ogDescription = seo.ogDescription || seo.description;
+    const ogImage = toAbsoluteUrl(seo.ogImage, siteUrl);
 
     const metaMap = [
       ['meta[name="description"]', seo.description],
       ['meta[property="og:title"]', ogTitle],
       ['meta[property="og:description"]', ogDescription],
-      ['meta[property="og:image"]', seo.ogImage],
+      ['meta[property="og:image"]', ogImage],
+      ['meta[property="og:url"]', seo.ogUrl || siteUrl],
       ['meta[name="twitter:title"]', seo.twitterTitle || ogTitle],
       ['meta[name="twitter:description"]', seo.twitterDescription || ogDescription],
-      ['meta[name="twitter:image"]', seo.ogImage],
+      ['meta[name="twitter:image"]', ogImage],
     ];
 
     metaMap.forEach(([selector, value]) => {
@@ -164,6 +165,16 @@
       const node = document.querySelector(selector);
       if (node) node.setAttribute("content", value);
     });
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", seo.canonical || siteUrl);
+  }
+
+  function toAbsoluteUrl(path, siteUrl) {
+    if (!path) return path;
+    if (/^https?:\/\//i.test(path) || path.startsWith("data:")) return path;
+    const origin = String(siteUrl || "https://somnoilegko.ru/").replace(/\/$/, "");
+    return `${origin}/${String(path).replace(/^\//, "")}`;
   }
 
   /* ─────────────────────────── Списки ─────────────────────────── */
@@ -195,6 +206,7 @@
         const article = el("article", `what-i-do__item ${modifiers[item.size] || ""}`.trim());
         article.appendChild(el("span", "what-i-do__label", String(index + 1).padStart(2, "0")));
         article.appendChild(el("h3", "what-i-do__name", item.name));
+        if (item.text) article.appendChild(el("p", "what-i-do__text", item.text));
         container.appendChild(article);
       });
     },
@@ -271,6 +283,9 @@
 
         const contentCol = el("div", "project-case__content");
         contentCol.appendChild(el("span", "project-case__category", item.category));
+        if (item.statusLabel) {
+          contentCol.appendChild(el("span", "project-case__status", item.statusLabel));
+        }
         contentCol.appendChild(el("h3", "project-case__title", item.title));
 
         const meta = el("div", "project-case__meta");
@@ -344,6 +359,29 @@
           article.appendChild(visual);
         }
 
+        container.appendChild(article);
+      });
+    },
+
+    skills(container, content) {
+      const items = content.skills && content.skills.items;
+      if (!Array.isArray(items)) return;
+      container.textContent = "";
+      items.forEach((item) => {
+        const label = typeof item === "string" ? item : item.name;
+        if (!label) return;
+        container.appendChild(el("li", "skills__item", label));
+      });
+    },
+
+    lexFacts(container, content) {
+      const items = content.lex && content.lex.facts;
+      if (!Array.isArray(items)) return;
+      container.textContent = "";
+      items.forEach((item) => {
+        const article = el("article", "lex__fact");
+        article.appendChild(el("h3", "lex__fact-title", item.title));
+        article.appendChild(el("p", "lex__fact-text", item.text));
         container.appendChild(article);
       });
     },
@@ -493,6 +531,28 @@
         container.appendChild(link("site-footer__link", item.label, item.href))
       );
     },
+
+    contactDirectory(container, content) {
+      const items = collectContactItems(content);
+      if (!items.length) return;
+      const itemClass = container.getAttribute("data-cms-item-class") || "contact-dir__item";
+      container.textContent = "";
+      items.forEach((item) => {
+        const li = el("li", "contact-dir__entry");
+        const node = document.createElement("a");
+        node.className = itemClass;
+        node.href = item.href;
+        if (isExternal(item.href)) {
+          node.target = "_blank";
+          node.rel = "noopener noreferrer";
+        }
+        node.appendChild(el("span", "contact-dir__label", item.label));
+        node.appendChild(el("span", "contact-dir__value", item.value));
+        if (item.note) node.appendChild(el("span", "contact-dir__note", item.note));
+        li.appendChild(node);
+        container.appendChild(li);
+      });
+    },
   };
 
   /* ─────────────────────────── Hero ─────────────────────────── */
@@ -529,6 +589,103 @@
 
       title.appendChild(line);
     });
+  }
+
+  function telHref(value) {
+    const digits = String(value || "").replace(/[^\d+]/g, "");
+    return digits ? `tel:${digits}` : "";
+  }
+
+  function collectContactItems(content) {
+    const site = content.site || {};
+    const items = [];
+
+    if (site.telegram) {
+      items.push({
+        label: site.telegramLabel || "Telegram",
+        value: site.telegramHandle || "@somnoi_legko",
+        href: site.telegram,
+      });
+    }
+
+    if (site.email) {
+      items.push({
+        label: site.emailLabel || "Email",
+        value: site.email,
+        href: `mailto:${site.email}`,
+      });
+    }
+
+    [
+      ["phoneLv", "phoneLvLabel", "phoneLvNote", "Латвия"],
+      ["phoneRu", "phoneRuLabel", "phoneRuNote", "Россия"],
+    ].forEach(([valueKey, labelKey, noteKey, fallbackLabel]) => {
+      if (!site[valueKey]) return;
+      items.push({
+        label: site[labelKey] || fallbackLabel,
+        value: site[valueKey],
+        href: telHref(site[valueKey]),
+        note: site[noteKey] || "писать",
+      });
+    });
+
+    return items;
+  }
+
+  function applyContacts(content) {
+    const email = content.site && content.site.email;
+    document.querySelectorAll("[data-cms-email]").forEach((node) => {
+      if (!email) {
+        node.hidden = true;
+        return;
+      }
+      node.hidden = false;
+      if (node.tagName === "A") {
+        node.setAttribute("href", `mailto:${email}`);
+      }
+      if (node.hasAttribute("data-cms-email-text")) {
+        writeText(node, email);
+      }
+    });
+  }
+
+  function applyJsonLd(content) {
+    const node = document.getElementById("site-jsonld");
+    if (!node) return;
+    const site = content.site || {};
+    const seo = content.seo || {};
+    const sameAs = [site.telegram, site.github, site.lexHref].filter(Boolean);
+    const data = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://somnoilegko.ru/#irina",
+          name: site.person || "Ирина Андреева",
+          url: seo.canonical || "https://somnoilegko.ru/",
+          email: site.email || undefined,
+          telephone: [site.phoneLv, site.phoneRu].filter(Boolean),
+          jobTitle: "Специалист по AI-ассистентам и автоматизации",
+          knowsAbout: [
+            "AI-ассистенты",
+            "искусственный интеллект",
+            "автоматизация",
+            "OpenClaw",
+            "LLM",
+            "Cursor",
+          ],
+          sameAs,
+        },
+        {
+          "@type": "WebSite",
+          name: site.brand || "Со мной легко",
+          url: seo.canonical || "https://somnoilegko.ru/",
+          description: seo.description,
+          inLanguage: "ru",
+        },
+      ],
+    };
+    node.textContent = JSON.stringify(data);
   }
 
   /* ─────────────────────── Сборка и применение ─────────────────────── */
@@ -575,6 +732,8 @@
     applySeo(content.seo);
     applyHero(content.hero);
     applyFields(document, content);
+    applyContacts(content);
+    applyJsonLd(content);
 
     document.querySelectorAll("[data-cms-list]").forEach((container) => {
       const name = container.getAttribute("data-cms-list");

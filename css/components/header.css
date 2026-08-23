@@ -63,13 +63,19 @@
   .site-nav {
     display: flex;
     align-items: center;
+    gap: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-nav {
     gap: var(--space-1);
   }
 }
 
 .site-nav__link {
   position: relative;
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-2);
   font-size: var(--text-sm);
   font-weight: var(--weight-regular);
   color: var(--color-text-muted);
@@ -77,6 +83,12 @@
   transition:
     color var(--transition-fast),
     background-color var(--transition-fast);
+}
+
+@media (min-width: 1280px) {
+  .site-nav__link {
+    padding: var(--space-2) var(--space-3);
+  }
 }
 
 .site-nav__link::after {
@@ -123,9 +135,15 @@
 }
 
 .site-header__cta {
-  padding: var(--space-2) var(--space-5);
+  padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
   white-space: nowrap;
+}
+
+@media (min-width: 1280px) {
+  .site-header__cta {
+    padding: var(--space-2) var(--space-5);
+  }
 }
 
 /* ── Burger (mobile) ── */
@@ -142,8 +160,14 @@
   transition: background-color var(--transition-fast);
 }
 
-.burger:hover {
+.burger:hover,
+.burger:focus-visible {
   background-color: var(--color-primary-soft);
+}
+
+.burger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 @media (min-width: 1024px) {

@@ -85,6 +85,11 @@
   padding-top: var(--space-4);
 }
 
+.route-card__action .btn {
+  width: 100%;
+  white-space: normal;
+}
+
 .route-card--featured {
   background: var(--color-primary);
   border-color: var(--color-primary);

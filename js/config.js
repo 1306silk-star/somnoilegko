@@ -8,6 +8,9 @@ const SITE_CONFIG = {
   person: "Ирина Андреева",
   telegram: "https://t.me/somnoi_legko",
   github: "https://github.com/1306silk-star",
+  lex: "https://t.me/irinaai13_bot",
+  siteUrl: "https://somnoilegko.ru/",
+  email: "1306silk@gmail.com",
   apps: {
     contentHelper: "https://1306silk-star.github.io/my_test/",
     budget: "https://1306silk-star.github.io/my_budget/",

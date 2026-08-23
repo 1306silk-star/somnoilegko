@@ -91,6 +91,11 @@
             path: "seo.ogImage",
             hint: "Путь относительно корня сайта, например assets/images/about/about.jpg",
           }),
+          F.url({
+            label: "Канонический адрес страницы",
+            path: "seo.canonical",
+            hint: "Полный адрес вида https://somnoilegko.ru/",
+          }),
         ],
       }),
       card({

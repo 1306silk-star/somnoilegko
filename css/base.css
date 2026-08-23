@@ -53,8 +53,15 @@ a:focus-visible {
     color var(--transition-base),
     box-shadow var(--transition-base),
     transform var(--transition-fast);
-  white-space: nowrap;
+  white-space: normal;
+  text-wrap: balance;
   position: relative;
+}
+
+.btn:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 .btn:hover {

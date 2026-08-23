@@ -7,7 +7,6 @@
   const burger = document.querySelector(".burger");
   const mobileMenu = document.querySelector(".mobile-menu");
   const overlay = document.querySelector(".mobile-menu__overlay");
-  const navLinks = document.querySelectorAll("[data-nav-link]");
   const focusableSelector =
     'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -85,31 +84,32 @@
   });
 
   /* ── Плавная прокрутка к якорям ── */
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const href = link.getAttribute("href");
-      if (!href || !href.startsWith("#") || href === "#") return;
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("[data-nav-link]");
+    if (!link) return;
 
-      const target = document.querySelector(href);
-      if (!target) return;
+    const href = link.getAttribute("href");
+    if (!href || !href.startsWith("#") || href === "#") return;
 
-      event.preventDefault();
-      closeMenu();
+    const target = document.querySelector(href);
+    if (!target) return;
 
-      const headerHeight = header.offsetHeight;
-      const top =
-        target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+    event.preventDefault();
+    closeMenu();
 
-      window.scrollTo({ top, behavior: "smooth" });
-      history.pushState(null, "", href);
-    });
+    const headerHeight = header.offsetHeight;
+    const top =
+      target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+
+    window.scrollTo({ top, behavior: "smooth" });
+    history.pushState(null, "", href);
   });
 
   /* ── Подсветка активного пункта при прокрутке ── */
-  const scrollTargets = [...document.querySelectorAll("section[id], #projects")];
+  const scrollTargets = [...document.querySelectorAll("section[id]")];
 
   function setActiveNav(id) {
-    navLinks.forEach((link) => {
+    document.querySelectorAll(".site-nav__link, .mobile-menu__link").forEach((link) => {
       link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
     });
   }

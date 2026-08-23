@@ -1,5 +1,5 @@
 /**
- * Hero — последовательное появление слов заголовка (один раз)
+ * Hero — последовательное появление строк заголовка (один раз)
  */
 
 (function initHeroAnimation() {
@@ -7,25 +7,32 @@
   if (!hero) return;
 
   const eyebrow = hero.querySelector(".hero__eyebrow");
-  const words = hero.querySelectorAll(".hero__word");
+  const lines = hero.querySelectorAll(".hero__title-line");
   const dash = hero.querySelector(".hero__title-dash");
-  const tagline = hero.querySelector(".hero__tagline");
+  const promise = hero.querySelector(".hero__promise");
+  const lead = hero.querySelector(".hero__lead");
   const actions = hero.querySelector(".hero__actions");
   const editorial = hero.querySelector(".hero__editorial");
   const motif = hero.querySelector(".motif-stroke");
 
-  const WORD_DELAY = 200;
+  const LINE_DELAY = 220;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function reveal(el) {
     if (el) el.classList.add("is-visible");
   }
 
+  function revealLine(line) {
+    if (!line) return;
+    line.querySelectorAll(".hero__word").forEach((word) => reveal(word));
+  }
+
   function revealAll() {
     reveal(eyebrow);
-    words.forEach((word) => reveal(word));
+    lines.forEach(revealLine);
     reveal(dash);
-    reveal(tagline);
+    reveal(promise);
+    reveal(lead);
     reveal(actions);
     reveal(editorial);
     if (motif) motif.classList.add("is-drawn");
@@ -42,17 +49,19 @@
   async function runSequence() {
     hero.classList.add("hero--animating");
     reveal(eyebrow);
-    await wait(100);
+    await wait(120);
 
-    for (const word of words) {
-      reveal(word);
-      await wait(WORD_DELAY);
+    for (const line of lines) {
+      revealLine(line);
+      await wait(LINE_DELAY);
     }
 
     reveal(dash);
-    await wait(180);
-    reveal(tagline);
-    await wait(WORD_DELAY);
+    await wait(160);
+    reveal(promise);
+    await wait(LINE_DELAY);
+    reveal(lead);
+    await wait(LINE_DELAY);
     reveal(actions);
     reveal(editorial);
     if (motif) motif.classList.add("is-drawn");

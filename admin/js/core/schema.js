@@ -62,6 +62,7 @@ Admin.Schema = (function () {
         tags: [],
         primaryLabel: "Открыть проект",
         url: "",
+        statusLabel: "",
         githubLabel: "Посмотреть код на GitHub",
         github: "",
         embedUrl: "",
@@ -108,7 +109,7 @@ Admin.Schema = (function () {
     },
 
     whatIDoItem() {
-      return { name: "Направление", size: "normal" };
+      return { name: "Направление", text: "", size: "normal" };
     },
 
     recognizeItem() {

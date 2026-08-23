@@ -44,9 +44,15 @@
     background-color var(--transition-base);
 }
 
-.faq-item__trigger:hover {
+.faq-item__trigger:hover,
+.faq-item__trigger:focus-visible {
   color: var(--color-primary);
   background-color: var(--color-primary-soft);
+}
+
+.faq-item__trigger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
 }
 
 .faq-item.is-open .faq-item__trigger {

@@ -4,32 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Сомной_легко — Ирина Андреева · Сайты, AI, автоматизация</title>
+    <title>Со мной легко — Ирина Андреева · AI-ассистенты и время</title>
     <meta
       name="description"
-      content="Помогаю разобраться, какие задачи можно передать AI, подобрать понятные инструменты и научиться ими пользоваться — спокойно, без сложных терминов."
+      content="Ирина Андреева помогает возвращать время с помощью AI: создаёт ассистентов, сайты и автоматизации и объясняет современные инструменты простым языком."
     />
+    <link rel="canonical" href="https://somnoilegko.ru/" />
+    <meta name="author" content="Ирина Андреева" />
+    <meta name="theme-color" content="#1e4d3a" />
+    <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Telegram / соцсети -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_RU" />
-    <meta property="og:title" content="Сомной_легко — Ирина Андреева · Сайты, AI, автоматизация" />
+    <meta property="og:url" content="https://somnoilegko.ru/" />
+    <meta property="og:title" content="Со мной легко — Ирина Андреева · AI-ассистенты и время" />
     <meta
       property="og:description"
-      content="Освободите время от рутинных задач с помощью искусственного интеллекта. Спокойно, понятно и пошагово."
+      content="Возвращаю ваше время с помощью искусственного интеллекта. AI-ассистенты, сайты и автоматизации — понятным человеческим языком."
     />
-    <meta property="og:image" content="assets/images/about/about.jpg" />
+    <meta property="og:image" content="https://somnoilegko.ru/assets/images/about/about.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Сомной_легко" />
+    <meta property="og:site_name" content="Со мной легко" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Сомной_легко — Ирина Андреева · Сайты, AI, автоматизация" />
+    <meta name="twitter:title" content="Со мной легко — Ирина Андреева · AI-ассистенты и время" />
     <meta
       name="twitter:description"
-      content="Помогаю использовать AI в работе и жизни — спокойно, без сложных терминов."
+      content="Ирина Андреева создаёт AI-ассистентов, сайты и автоматизации, которые помогают вернуть время."
     />
-    <meta name="twitter:image" content="assets/images/about/about.jpg" />
+    <meta name="twitter:image" content="https://somnoilegko.ru/assets/images/about/about.jpg" />
+
+    <script type="application/ld+json" id="site-jsonld">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://somnoilegko.ru/#irina",
+            "name": "Ирина Андреева",
+            "url": "https://somnoilegko.ru/",
+            "jobTitle": "Специалист по AI-ассистентам и автоматизации",
+            "knowsAbout": [
+              "AI-ассистенты",
+              "искусственный интеллект",
+              "автоматизация",
+              "OpenClaw",
+              "LLM",
+              "Cursor"
+            ],
+            "sameAs": [
+              "https://t.me/somnoi_legko",
+              "https://github.com/1306silk-star",
+              "https://t.me/irinaai13_bot"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "name": "Со мной легко",
+            "url": "https://somnoilegko.ru/",
+            "inLanguage": "ru",
+            "description": "Ирина Андреева помогает возвращать время с помощью искусственного интеллекта."
+          }
+        ]
+      }
+    </script>
 
     <!-- Будущая английская версия: <link rel="alternate" hreflang="en" href="/en/" /> -->
 
@@ -54,6 +94,7 @@
     <link rel="stylesheet" href="css/components/motif.css" />
     <link rel="stylesheet" href="css/components/header.css" />
     <link rel="stylesheet" href="css/components/hero.css" />
+    <link rel="stylesheet" href="css/components/lex.css" />
     <link rel="stylesheet" href="css/components/tasks.css" />
     <link rel="stylesheet" href="css/components/routes.css" />
     <link rel="stylesheet" href="css/components/projects.css" />
@@ -84,8 +125,8 @@
           data-cms-list="nav"
           data-cms-link-class="site-nav__link"
         >
+          <a class="site-nav__link" href="#lex" data-nav-link>Лекс</a>
           <a class="site-nav__link" href="#tasks" data-nav-link>Задачи</a>
-          <a class="site-nav__link" href="#tools" data-nav-link>Инструменты</a>
           <a class="site-nav__link" href="#projects" data-nav-link>Проекты</a>
           <a class="site-nav__link" href="#about" data-nav-link>Обо мне</a>
           <a class="site-nav__link" href="#faq" data-nav-link>FAQ</a>
@@ -102,7 +143,7 @@
             data-cms="header.ctaLabel"
             data-cms-attr="href:header.ctaHref"
           >
-            Записаться на бесплатную консультацию
+            Написать Ирине
           </a>
         </div>
 
@@ -133,8 +174,8 @@
         data-cms-list="nav"
         data-cms-link-class="mobile-menu__link"
       >
+        <a class="mobile-menu__link" href="#lex" data-nav-link>Лекс</a>
         <a class="mobile-menu__link" href="#tasks" data-nav-link>Задачи</a>
-        <a class="mobile-menu__link" href="#tools" data-nav-link>Инструменты</a>
         <a class="mobile-menu__link" href="#projects" data-nav-link>Проекты</a>
         <a class="mobile-menu__link" href="#about" data-nav-link>Обо мне</a>
         <a class="mobile-menu__link" href="#faq" data-nav-link>FAQ</a>
@@ -148,7 +189,7 @@
         data-cms="header.ctaLabel"
         data-cms-attr="href:header.ctaHref"
       >
-        Записаться на бесплатную консультацию
+        Написать Ирине
       </a>
     </nav>
 
@@ -163,33 +204,40 @@
           <div class="hero__grid">
             <div class="hero__content">
               <p class="eyebrow hero__eyebrow">
-                <span class="hero__eyebrow-name" data-cms="hero.eyebrow">Ирина Андреева</span>
+                <span class="hero__eyebrow-name" data-cms="hero.eyebrow">Ирина Андреева · возвращаю время с помощью AI</span>
               </p>
 
               <h1 class="hero__title" id="hero-title">
                 <span class="hero__title-line">
-                  <span class="hero__word"><span class="hero__word-text">Со</span></span>
-                  <span class="hero__word"><span class="hero__word-text">мной</span></span><span class="hero__title-dash" aria-hidden="true">&nbsp;—</span>
+                  <span class="hero__word"><span class="hero__word-text">Возвращаю</span></span>
+                  <span class="hero__word"><span class="hero__word-text">ваше</span></span>
+                  <span class="hero__word hero__word--accent"><span class="hero__word-text">время</span></span>
                 </span>
                 <span class="hero__title-line">
-                  <span class="hero__word hero__word--accent"><span class="hero__word-text">легко</span></span>
-                  <span class="hero__word"><span class="hero__word-text">и</span></span>
-                  <span class="hero__word hero__word--accent"><span class="hero__word-text">понятно.</span></span>
+                  <span class="hero__word"><span class="hero__word-text">с</span></span>
+                  <span class="hero__word"><span class="hero__word-text">помощью</span></span>
+                  <span class="hero__word"><span class="hero__word-text">искусственного</span></span>
+                  <span class="hero__word"><span class="hero__word-text">интеллекта</span></span>
                 </span>
               </h1>
 
-              <p class="hero__tagline" data-cms="hero.tagline">Сайты. AI. Автоматизация.</p>
+              <p class="hero__promise" data-cms="hero.promise">Со мной — легко и понятно</p>
+
+              <p class="hero__lead" data-cms="hero.lead">
+                Создаю AI-ассистентов, сайты и автоматизации, которые берут на себя рутину, помогают быстрее решать рабочие задачи и делают современные технологии понятными.
+              </p>
 
               <div class="hero__actions">
                 <a
                   class="btn btn--hero btn--hero-primary"
                   data-magnetic
-                  href="#projects"
-                  data-nav-link
+                  href="https://t.me/irinaai13_bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   data-cms="hero.primaryLabel"
                   data-cms-attr="href:hero.primaryHref"
                 >
-                  Посмотреть проекты
+                  Попробовать Лекса
                 </a>
                 <a
                   class="btn btn--hero btn--hero-secondary"
@@ -200,7 +248,7 @@
                   data-cms="hero.secondaryLabel"
                   data-cms-attr="href:hero.secondaryHref"
                 >
-                  Обсудить задачу
+                  Написать Ирине
                 </a>
               </div>
             </div>
@@ -211,7 +259,7 @@
                 <img
                   class="hero__photo"
                   src="assets/images/about/about.jpg"
-                  alt="Ирина Андреева с букетом тюльпанов — специалист по применению AI в работе и жизни"
+                  alt="Ирина Андреева с букетом тюльпанов — помогает возвращать время с помощью искусственного интеллекта"
                   width="900"
                   height="1125"
                   fetchpriority="high"
@@ -227,47 +275,102 @@
         </div>
       </section>
 
-      <!-- ЧТО Я ДЕЛАЮ -->
+      <!-- ЧЕМ Я ПОМОГАЮ -->
       <section class="section what-i-do" id="what-i-do" aria-labelledby="what-i-do-title">
         <div class="container">
           <header class="section-header reveal">
-            <p class="section-header__label" data-cms="whatIDo.label">Направления</p>
+            <p class="section-header__label" data-cms="whatIDo.label">Чем помогаю</p>
             <h2 class="section-header__title" id="what-i-do-title" data-cms="whatIDo.title">Что я делаю</h2>
           </header>
 
           <div class="what-i-do__grid reveal-stagger" data-cms-list="whatIDo">
             <article class="what-i-do__item what-i-do__item--featured">
               <span class="what-i-do__label">01</span>
-              <h3 class="what-i-do__name">Лендинги</h3>
+              <h3 class="what-i-do__name">AI-ассистенты и AI-агенты</h3>
+              <p class="what-i-do__text">Персональные помощники, которые берут на себя рутину и сохраняют рабочий контекст.</p>
             </article>
             <article class="what-i-do__item">
               <span class="what-i-do__label">02</span>
-              <h3 class="what-i-do__name">Портфолио</h3>
-            </article>
-            <article class="what-i-do__item what-i-do__item--wide">
-              <span class="what-i-do__label">03</span>
-              <h3 class="what-i-do__name">Промостраницы</h3>
+              <h3 class="what-i-do__name">Сайты и веб-приложения</h3>
+              <p class="what-i-do__text">Создаю и публикую понятные веб-страницы и мини-сервисы.</p>
             </article>
             <article class="what-i-do__item what-i-do__item--accent">
-              <span class="what-i-do__label">04</span>
-              <h3 class="what-i-do__name">AI-first сайты</h3>
-            </article>
-            <article class="what-i-do__item">
-              <span class="what-i-do__label">05</span>
-              <h3 class="what-i-do__name">Digital-концепты</h3>
-            </article>
-            <article class="what-i-do__item">
-              <span class="what-i-do__label">06</span>
-              <h3 class="what-i-do__name">Интерфейсы</h3>
-            </article>
-            <article class="what-i-do__item what-i-do__item--wide">
-              <span class="what-i-do__label">07</span>
-              <h3 class="what-i-do__name">Спецпроекты</h3>
+              <span class="what-i-do__label">03</span>
+              <h3 class="what-i-do__name">Автоматизация</h3>
+              <p class="what-i-do__text">Убираю повторяющиеся шаги из рабочих и повседневных задач.</p>
             </article>
             <article class="what-i-do__item what-i-do__item--featured what-i-do__item--dark">
-              <span class="what-i-do__label">08</span>
-              <h3 class="what-i-do__name">AI-продукты</h3>
+              <span class="what-i-do__label">04</span>
+              <h3 class="what-i-do__name">Понятные объяснения AI</h3>
+              <p class="what-i-do__text">Перевожу современные инструменты на простой человеческий язык.</p>
             </article>
+          </div>
+
+          <div class="skills reveal">
+            <p class="skills__label" data-cms="skills.label">Чем владею на практике</p>
+            <ul class="skills__list" data-cms-list="skills">
+              <li class="skills__item">AI-ассистенты и AI-агенты</li>
+              <li class="skills__item">OpenClaw</li>
+              <li class="skills__item">Работа с LLM и промптами</li>
+              <li class="skills__item">Автоматизация</li>
+              <li class="skills__item">Cursor</li>
+              <li class="skills__item">Google AI Studio</li>
+              <li class="skills__item">Создание и публикация веб-приложений</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ЛЕКС -->
+      <section class="section lex" id="lex" aria-labelledby="lex-title">
+        <div class="container">
+          <div class="lex__panel reveal">
+            <header class="lex__header">
+              <p class="lex__label" data-cms="lex.label">Главный актуальный кейс</p>
+              <h2 class="lex__title" id="lex-title" data-cms="lex.title">Лекс — персональный ИИ-ассистент</h2>
+            </header>
+            <p class="lex__lead" data-cms="lex.lead">
+              Лекс — персональный ИИ-ассистент для тех, кому не хватает времени. Он сохраняет рабочий контекст, помогает решать повседневные и рабочие задачи и самостоятельно подключает подходящие инструменты. Человеку не нужно разбираться в технической стороне — достаточно обычными словами сказать Лексу, что нужно сделать.
+            </p>
+            <div class="lex__facts" data-cms-list="lexFacts">
+              <article class="lex__fact">
+                <h3 class="lex__fact-title">Для кого</h3>
+                <p class="lex__fact-text">Для людей с рутиной, высокой нагрузкой и нехваткой времени.</p>
+              </article>
+              <article class="lex__fact">
+                <h3 class="lex__fact-title">Что решает</h3>
+                <p class="lex__fact-text">Уменьшает ручную работу, помогает быстрее получать результат и сохраняет рабочий контекст.</p>
+              </article>
+              <article class="lex__fact">
+                <h3 class="lex__fact-title">Как работает</h3>
+                <p class="lex__fact-text">Пользователь формулирует задачу обычным языком, Лекс использует контекст и доступные ему инструменты.</p>
+              </article>
+            </div>
+            <p class="lex__note" data-cms="lex.note">
+              С Лексом можно говорить в Telegram — это один из доступных каналов, а не единственный способ взаимодействия.
+            </p>
+            <div class="lex__actions">
+              <a
+                class="btn btn--hero btn--hero-primary"
+                data-magnetic
+                href="https://t.me/irinaai13_bot"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cms="lex.primaryLabel"
+                data-cms-attr="href:lex.primaryHref"
+              >
+                Попробовать Лекса
+              </a>
+              <a
+                class="btn btn--hero btn--hero-secondary"
+                href="#contacts"
+                data-nav-link
+                data-cms="lex.secondaryLabel"
+                data-cms-attr="href:lex.secondaryHref"
+              >
+                Обсудить задачу с Ириной
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -412,28 +515,30 @@
           <div class="routes__grid reveal-stagger" data-cms-list="routes">
             <article class="route-card route-card--featured" data-spotlight data-tilt>
               <span class="route-card__number">01</span>
-              <h3 class="route-card__title">Мне нужно разобраться</h3>
-              <p class="route-card__text">Я пока не понимаю, какой инструмент подойдёт.</p>
+              <h3 class="route-card__title">Хочу попробовать Лекса</h3>
+              <p class="route-card__text">Нужен персональный ИИ-ассистент, который берёт на себя рутину и сохраняет контекст.</p>
               <div class="route-card__action">
-                <a class="btn btn--primary" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
-                  Записаться на бесплатную консультацию
+                <a class="btn btn--primary" href="https://t.me/irinaai13_bot" target="_blank" rel="noopener noreferrer">
+                  Попробовать Лекса
                 </a>
               </div>
             </article>
 
             <article class="route-card" data-spotlight data-tilt>
               <span class="route-card__number">02</span>
-              <h3 class="route-card__title">Мне нужен готовый инструмент</h3>
-              <p class="route-card__text">Хочу использовать уже созданного помощника или мини-сервис.</p>
+              <h3 class="route-card__title">Мне нужно разобраться</h3>
+              <p class="route-card__text">Я пока не понимаю, какой инструмент подойдёт и с чего начать.</p>
               <div class="route-card__action">
-                <a class="btn btn--secondary" href="#tools" data-nav-link>Посмотреть инструменты</a>
+                <a class="btn btn--secondary" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                  Написать Ирине
+                </a>
               </div>
             </article>
 
             <article class="route-card" data-spotlight data-tilt>
               <span class="route-card__number">03</span>
-              <h3 class="route-card__title">Мне нужно решение под мою задачу</h3>
-              <p class="route-card__text">Мне нужен персональный инструмент или понятный способ решения конкретной задачи.</p>
+              <h3 class="route-card__title">Нужно решение под мою задачу</h3>
+              <p class="route-card__text">Хочу обсудить конкретную рабочую или жизненную задачу и понять, как её упростить.</p>
               <div class="route-card__action">
                 <a class="btn btn--secondary" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
                   Обсудить задачу
@@ -445,20 +550,21 @@
       </section>
 
       <!-- УЖЕ СОЗДАНО -->
-      <section class="section projects" id="tools" aria-labelledby="tools-title">
+      <section class="section projects" id="projects" aria-labelledby="projects-title">
         <div class="container">
           <header class="section-header reveal-clip">
-            <p class="section-header__label" data-cms="projects.label">Инструменты</p>
-            <h2 class="section-header__title" id="tools-title" data-cms="projects.title">Инструменты для работы и жизни</h2>
+            <p class="section-header__label" data-cms="projects.label">Практические проекты</p>
+            <h2 class="section-header__title" id="projects-title" data-cms="projects.title">Другие примеры работы</h2>
             <p class="section-header__subtitle" data-cms="projects.subtitle">
-              Начинаю с небольших понятных решений, которые можно открыть и использовать прямо в браузере.
+              Главный актуальный кейс — Лекс. Ниже учебные и личные мини-сервисы, которые можно открыть в браузере. Это реальные примеры практики, а не коммерческие продукты.
             </p>
           </header>
 
-          <div class="projects__list" id="projects" data-cms-list="projects">
+          <div class="projects__list" data-cms-list="projects">
             <article class="project-case project-case--work reveal reveal--scale" data-spotlight data-tilt>
               <div class="project-case__content">
                 <span class="project-case__category">Для работы</span>
+                <span class="project-case__status">Практический мини-сервис</span>
                 <h3 class="project-case__title">Помощник для создания контента</h3>
 
                 <div class="project-case__meta">
@@ -477,9 +583,9 @@
                   <li class="project-case__benefit">Не нужно начинать с пустого листа</li>
                 </ul>
                 <div class="project-case__features">
-                  <span class="tag">бесплатно</span>
+                  <span class="tag">практический проект</span>
                   <span class="tag">без регистрации</span>
-                  <span class="tag">работает в браузере</span>
+                  <span class="tag">можно открыть в браузере</span>
                 </div>
                 <div class="project-case__actions">
                   <a class="btn btn--primary btn--shine" href="https://1306silk-star.github.io/my_test/" target="_blank" rel="noopener noreferrer">Открыть помощник</a>
@@ -511,6 +617,7 @@
             <article class="project-case project-case--life project-case--reverse reveal reveal--scale" data-spotlight data-tilt>
               <div class="project-case__content">
                 <span class="project-case__category">Для жизни</span>
+                <span class="project-case__status">Практический мини-сервис</span>
                 <h3 class="project-case__title">Личный бюджет</h3>
 
                 <div class="project-case__meta">
@@ -529,9 +636,9 @@
                   <li class="project-case__benefit">Визуализация прогресса к цели</li>
                 </ul>
                 <div class="project-case__features">
-                  <span class="tag">понятная структура</span>
-                  <span class="tag">расчёты в евро</span>
-                  <span class="tag">визуализация цели</span>
+                  <span class="tag">практический проект</span>
+                  <span class="tag">учёт в евро</span>
+                  <span class="tag">можно открыть в браузере</span>
                 </div>
                 <div class="project-case__actions">
                   <a class="btn btn--primary btn--shine" href="https://1306silk-star.github.io/my_budget/" target="_blank" rel="noopener noreferrer">Открыть приложение</a>
@@ -572,9 +679,9 @@
           </header>
 
           <div class="approach__manifesto reveal" aria-hidden="false" data-cms-list="manifesto">
-            <p class="approach__line reveal">Быстро.</p>
-            <p class="approach__line approach__line--accent reveal reveal--delay-1">Красиво.</p>
-            <p class="approach__line reveal reveal--delay-2">Точно.</p>
+            <p class="approach__line reveal">Понятно.</p>
+            <p class="approach__line approach__line--accent reveal reveal--delay-1">Пошагово.</p>
+            <p class="approach__line reveal reveal--delay-2">Без лишней сложности.</p>
           </div>
 
           <div class="approach__steps" data-cms-list="approachSteps">
@@ -618,7 +725,7 @@
                 <img
                   class="about__photo"
                   src="assets/images/contacts/contacts.jpg"
-                  alt="Ирина Андреева"
+                  alt="Ирина Андреева — основательница бренда «Со мной легко»"
                   width="800"
                   height="800"
                   loading="lazy"
@@ -630,23 +737,23 @@
             <div class="about__content reveal reveal--delay-1" data-cms-list="aboutText">
               <div class="section-divider"></div>
               <h2 class="about__title" id="about-title" data-cms="about.title">
-                Я сама прошла путь от «ничего не понимаю» до&nbsp;собственных цифровых проектов
+                Помогаю возвращать время — спокойно и понятным языком
               </h2>
               <p class="about__text">
-                Меня зовут Ирина Андреева. Я изучаю искусственный интеллект с&nbsp;2023&nbsp;года, проходила обучение в&nbsp;Школе Ксении Барановой и&nbsp;применяла AI в&nbsp;собственном товарном бизнесе.
+                Меня зовут Ирина Андреева. Я помогаю людям возвращать время с помощью искусственного интеллекта и объясняю современные инструменты простым человеческим языком.
               </p>
               <p class="about__text">
-                Сейчас я создаю новое направление&nbsp;— помогаю людям использовать искусственный интеллект в&nbsp;работе и&nbsp;жизни без страха, сложных слов и&nbsp;ощущения, что технологии предназначены только для программистов.
+                Изучаю и применяю AI с&nbsp;2023&nbsp;года: обучение в&nbsp;Школе Ксении Барановой, практика в&nbsp;собственном товарном бизнесе и собственные цифровые проекты. Сейчас я создаю AI-ассистентов, сайты и автоматизации для тех, кому не хватает времени разбираться в технической стороне.
               </p>
               <p class="about__text">
-                Моя сильная сторона&nbsp;— объяснять спокойно, понятно и&nbsp;пошагово. Именно поэтому появился бренд «Сомной_легко».
+                Моя сильная сторона&nbsp;— объяснять спокойно, понятно и&nbsp;пошагово. Именно поэтому появился бренд «Со мной легко». Главный актуальный проект&nbsp;— персональный ИИ-ассистент Лекс.
               </p>
               <div class="about__facts" data-cms-list="aboutFacts">
                 <span class="about__fact">AI с 2023 года</span>
-                <span class="about__fact">Опыт собственного бизнеса</span>
-                <span class="about__fact">Обучение и практика</span>
-                <span class="about__fact">Проекты в Cursor и GitHub</span>
-                <span class="about__fact">Работающие мини-сервисы</span>
+                <span class="about__fact">Практика в своём бизнесе</span>
+                <span class="about__fact">OpenClaw, Cursor, Google AI Studio</span>
+                <span class="about__fact">LLM и промпты</span>
+                <span class="about__fact">Публикация веб-приложений</span>
               </div>
             </div>
           </div>
@@ -662,28 +769,29 @@
           </header>
 
           <p class="results__intro reveal" data-cms="cases.intro">
-            Это новое направление, которое развивается на&nbsp;основе практического обучения, предпринимательского опыта и&nbsp;собственных работающих проектов.
+            Это честное портфолио практики: работающий ассистент Лекс, учебные мини-сервисы и открытый код. Я не обещаю то, чего нет.
           </p>
 
           <div class="results__timeline" data-cms-list="cases">
             <article class="result-item reveal">
-              <h3 class="result-item__title">Первый опубликованный помощник для контента</h3>
-              <p class="result-item__text">Работает в браузере, бесплатно и без регистрации — можно попробовать прямо сейчас.</p>
-              <a class="result-item__link" href="https://1306silk-star.github.io/my_test/" target="_blank" rel="noopener noreferrer">Открыть помощник →</a>
+              <h3 class="result-item__title">Лекс — персональный ИИ-ассистент</h3>
+              <p class="result-item__text">Главный актуальный кейс. Помогает решать задачи обычным языком и сохраняет рабочий контекст. Telegram — один из каналов взаимодействия.</p>
+              <a class="result-item__link" href="https://t.me/irinaai13_bot" target="_blank" rel="noopener noreferrer">Попробовать Лекса →</a>
             </article>
             <article class="result-item reveal reveal--delay-1">
-              <h3 class="result-item__title">Личный бюджет — второй AI-проект</h3>
-              <p class="result-item__text">Работающее приложение для учёта финансов в евро с визуализацией цели накоплений.</p>
-              <a class="result-item__link" href="https://1306silk-star.github.io/my_budget/" target="_blank" rel="noopener noreferrer">Открыть приложение →</a>
+              <h3 class="result-item__title">Практический помощник для контента</h3>
+              <p class="result-item__text">Учебный мини-сервис в браузере: идеи для постов и недельный контент-план. Можно открыть и посмотреть, как устроена практика.</p>
+              <a class="result-item__link" href="https://1306silk-star.github.io/my_test/" target="_blank" rel="noopener noreferrer">Открыть мини-сервис →</a>
             </article>
             <article class="result-item reveal reveal--delay-2">
-              <h3 class="result-item__title">Первые созданные AI-проекты на GitHub</h3>
-              <p class="result-item__text">Все проекты с открытым кодом — можно посмотреть, как они устроены.</p>
-              <a class="result-item__link" href="https://github.com/1306silk-star" target="_blank" rel="noopener noreferrer">Профиль GitHub →</a>
+              <h3 class="result-item__title">Личный бюджет — практический проект</h3>
+              <p class="result-item__text">Личный инструмент учёта финансов в евро с визуализацией цели. Не коммерческий продукт, а реальный пример работы.</p>
+              <a class="result-item__link" href="https://1306silk-star.github.io/my_budget/" target="_blank" rel="noopener noreferrer">Открыть мини-сервис →</a>
             </article>
             <article class="result-item reveal reveal--delay-3">
-              <h3 class="result-item__title">Развитие проектов по версиям</h3>
-              <p class="result-item__text">Каждый инструмент улучшается на основе практики и обратной связи.</p>
+              <h3 class="result-item__title">Открытый код на GitHub</h3>
+              <p class="result-item__text">Практические проекты можно посмотреть в коде — без обещаний «крупной студии».</p>
+              <a class="result-item__link" href="https://github.com/1306silk-star" target="_blank" rel="noopener noreferrer">Профиль GitHub →</a>
             </article>
             <article class="result-item reveal reveal--delay-3">
               <h3 class="result-item__title">Продолжение обучения</h3>
@@ -741,7 +849,7 @@
             </article>
             <article class="roadmap-card reveal reveal--delay-2">
               <span class="roadmap-card__status roadmap-card__status--planned">Запланировано</span>
-              <h3 class="roadmap-card__title">Новые боты</h3>
+              <h3 class="roadmap-card__title">Новые сценарии автоматизации</h3>
             </article>
             <article class="roadmap-card reveal reveal--delay-3">
               <span class="roadmap-card__status roadmap-card__status--planned">Запланировано</span>
@@ -773,6 +881,18 @@
           </header>
 
           <div class="faq__list" data-cms-list="faq">
+            <article class="faq-item reveal">
+              <button class="faq-item__trigger" type="button" aria-expanded="false">
+                <span>Кто такой Лекс и как его попробовать?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__panel" role="region">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__answer">Лекс — персональный ИИ-ассистент для тех, кому не хватает времени. Вы формулируете задачу обычными словами, а он использует контекст и доступные инструменты. Попробовать можно через Telegram — это один из каналов взаимодействия.</p>
+                </div>
+              </div>
+            </article>
+
             <article class="faq-item reveal">
               <button class="faq-item__trigger" type="button" aria-expanded="false">
                 <span>Я совсем не разбираюсь в искусственном интеллекте. Мне подойдёт?</span>
@@ -852,7 +972,7 @@
               </button>
               <div class="faq-item__panel" role="region">
                 <div class="faq-item__panel-inner">
-                  <p class="faq-item__answer">Да, некоторые из моих инструментов работают прямо в браузере — бесплатно и без регистрации. Посмотрите раздел «Инструменты» на этом сайте.</p>
+                  <p class="faq-item__answer">Да, учебные мини-сервисы открываются в браузере без регистрации. Главный актуальный кейс — Лекс: с ним можно начать диалог через Telegram.</p>
                 </div>
               </div>
             </article>
@@ -864,7 +984,7 @@
               </button>
               <div class="faq-item__panel" role="region">
                 <div class="faq-item__panel-inner">
-                  <p class="faq-item__answer">Подписывайтесь на мой Telegram-канал — там я делюсь новыми инструментами, идеями и обновлениями проектов.</p>
+                  <p class="faq-item__answer">Пишите в Telegram @somnoi_legko — там я отвечаю на вопросы и делюсь обновлениями. Лекса можно попробовать отдельно: это персональный ассистент, а не канал новостей.</p>
                 </div>
               </div>
             </article>
@@ -879,8 +999,37 @@
             <div class="cta__content reveal">
               <h2 class="cta__title" id="cta-title" data-cms="contacts.title">Расскажите, какая задача отнимает у&nbsp;вас время</h2>
               <p class="cta__text" data-cms="contacts.text">
-                На бесплатной консультации мы разберёмся, можно ли облегчить её с&nbsp;помощью AI и&nbsp;с&nbsp;чего лучше начать.
+                Напишите Ирине в Telegram: разберём, поможет ли AI-ассистент, сайт или автоматизация — спокойно и по делу. Если хотите сразу попробовать готового помощника, начните с Лекса.
               </p>
+              <p class="cta__directory-title" data-cms="contacts.directoryTitle">Контакты</p>
+              <ul class="contact-dir contact-dir--on-dark" data-cms-list="contactDirectory" aria-label="Контакты Ирины Андреевой">
+                <li class="contact-dir__entry">
+                  <a class="contact-dir__item" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                    <span class="contact-dir__label">Telegram</span>
+                    <span class="contact-dir__value">@somnoi_legko</span>
+                  </a>
+                </li>
+                <li class="contact-dir__entry">
+                  <a class="contact-dir__item" href="mailto:1306silk@gmail.com">
+                    <span class="contact-dir__label">Email</span>
+                    <span class="contact-dir__value">1306silk@gmail.com</span>
+                  </a>
+                </li>
+                <li class="contact-dir__entry">
+                  <a class="contact-dir__item" href="tel:+37120012270">
+                    <span class="contact-dir__label">Латвия</span>
+                    <span class="contact-dir__value">+371 20012270</span>
+                    <span class="contact-dir__note">писать</span>
+                  </a>
+                </li>
+                <li class="contact-dir__entry">
+                  <a class="contact-dir__item" href="tel:+79629324445">
+                    <span class="contact-dir__label">Россия</span>
+                    <span class="contact-dir__value">+7 962 932-44-45</span>
+                    <span class="contact-dir__note">писать</span>
+                  </a>
+                </li>
+              </ul>
               <div class="cta__actions">
                 <a
                   class="btn btn--primary btn--lg btn--shine"
@@ -891,20 +1040,21 @@
                   data-cms="contacts.primaryLabel"
                   data-cms-attr="href:contacts.primaryHref"
                 >
-                  Записаться на бесплатную консультацию
+                  Написать Ирине в Telegram
                 </a>
-                <button class="btn btn--secondary" type="button" data-contact-modal-open data-cms="contacts.modalLabel">
-                  Написать мне
-                </button>
                 <a
                   class="btn btn--secondary"
-                  href="#tools"
-                  data-nav-link
-                  data-cms="contacts.tertiaryLabel"
-                  data-cms-attr="href:contacts.tertiaryHref"
+                  href="https://t.me/irinaai13_bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cms="contacts.lexLabel"
+                  data-cms-attr="href:contacts.lexHref"
                 >
-                  Посмотреть инструменты
+                  Попробовать Лекса
                 </a>
+                <button class="btn btn--secondary" type="button" data-contact-modal-open data-cms="contacts.modalLabel">
+                  Оставить контакты
+                </button>
               </div>
             </div>
 
@@ -914,7 +1064,7 @@
                 <img
                   class="cta__photo"
                   src="assets/images/hero/hero.png"
-                  alt="Ирина Андреева"
+                  alt="Ирина Андреева — можно написать ей и обсудить задачу, которая отнимает время"
                   width="800"
                   height="1000"
                   loading="lazy"
@@ -937,19 +1087,51 @@
             </p>
             <p class="site-footer__tagline" data-cms="footer.tagline">
               Ирина Андреева<br />
-              Помогаю использовать искусственный интеллект в&nbsp;работе и&nbsp;жизни.
+              Возвращаю время с помощью искусственного интеллекта — спокойно и понятным языком.
             </p>
           </div>
 
           <div>
-            <p class="site-footer__heading" data-cms="footer.linksHeading">Ссылки</p>
+            <p class="site-footer__heading" data-cms="footer.linksHeading">На сайте</p>
             <nav class="site-footer__links" aria-label="Ссылки в футере" data-cms-list="footerLinks">
-              <a class="site-footer__link" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">Telegram</a>
-              <a class="site-footer__link" href="https://github.com/1306silk-star" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a class="site-footer__link" href="#tools" data-nav-link>Инструменты</a>
+              <a class="site-footer__link" href="#lex" data-nav-link>Лекс</a>
               <a class="site-footer__link" href="#projects" data-nav-link>Проекты</a>
+              <a class="site-footer__link" href="#about" data-nav-link>Обо мне</a>
+              <a class="site-footer__link" href="#faq" data-nav-link>FAQ</a>
               <a class="site-footer__link" href="#contacts" data-nav-link>Контакты</a>
             </nav>
+          </div>
+
+          <div>
+            <p class="site-footer__heading" data-cms="contacts.directoryTitle">Контакты</p>
+            <ul class="contact-dir contact-dir--footer" data-cms-list="contactDirectory" aria-label="Контакты в футере">
+              <li class="contact-dir__entry">
+                <a class="contact-dir__item" href="https://t.me/somnoi_legko" target="_blank" rel="noopener noreferrer">
+                  <span class="contact-dir__label">Telegram</span>
+                  <span class="contact-dir__value">@somnoi_legko</span>
+                </a>
+              </li>
+              <li class="contact-dir__entry">
+                <a class="contact-dir__item" href="mailto:1306silk@gmail.com">
+                  <span class="contact-dir__label">Email</span>
+                  <span class="contact-dir__value">1306silk@gmail.com</span>
+                </a>
+              </li>
+              <li class="contact-dir__entry">
+                <a class="contact-dir__item" href="tel:+37120012270">
+                  <span class="contact-dir__label">Латвия</span>
+                  <span class="contact-dir__value">+371 20012270</span>
+                  <span class="contact-dir__note">писать</span>
+                </a>
+              </li>
+              <li class="contact-dir__entry">
+                <a class="contact-dir__item" href="tel:+79629324445">
+                  <span class="contact-dir__label">Россия</span>
+                  <span class="contact-dir__value">+7 962 932-44-45</span>
+                  <span class="contact-dir__note">писать</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -982,7 +1164,7 @@
 
         <h2 class="contact-modal__title" id="contact-modal-title" data-cms="contacts.modalTitle">Написать мне</h2>
         <p class="contact-modal__subtitle" data-cms="contacts.modalSubtitle">
-          Оставьте контакты — я свяжусь с вами и помогу разобраться с задачей.
+          Оставьте имя и контакты — я напишу и помогу понять, как вернуть время в вашей задаче.
         </p>
 
         <form class="contact-form" id="contact-form" novalidate>
