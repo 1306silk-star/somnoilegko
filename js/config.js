@@ -20,6 +20,7 @@ const SITE_CONFIG = {
     about: "assets/images/contacts/contacts.jpg",
     cta: "assets/images/hero/hero.png",
     og: "assets/images/about/about.jpg",
+    lex: "assets/images/lex/lex-main.webp",
   },
 };
 

@@ -432,6 +432,14 @@
             F.text({ label: "Вторая кнопка", path: "lex.secondaryLabel" }),
             F.text({ label: "Ссылка второй кнопки", path: "lex.secondaryHref" }),
           ]),
+          F.row("2", [
+            F.text({ label: "Файл фотографии", path: "lex.photo" }),
+            F.text({
+              label: "Альтернативный текст",
+              path: "lex.photoAlt",
+              hint: "Например: Лекс — персональный ИИ-ассистент Ирины Андреевой",
+            }),
+          ]),
         ],
       }),
     ]);

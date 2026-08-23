@@ -34,6 +34,7 @@ SCRIPT = """
   const overflow =
     document.documentElement.scrollWidth > document.documentElement.clientWidth + 1;
   const lex = document.getElementById("lex");
+  const lexPhoto = document.querySelector(".lex__photo");
   const skills = [...document.querySelectorAll(".skills__item")].map((n) =>
     n.textContent.trim()
   );
@@ -47,6 +48,9 @@ SCRIPT = """
     clientWidth: document.documentElement.clientWidth,
     emailHref: email ? email.getAttribute("href") : null,
     lexVisible: !!(lex && lex.offsetHeight > 0),
+    lexPhotoSrc: lexPhoto ? lexPhoto.getAttribute("src") : null,
+    lexPhotoAlt: lexPhoto ? lexPhoto.getAttribute("alt") : null,
+    lexPhotoOk: !!(lexPhoto && lexPhoto.naturalWidth > 0),
     skills,
     h1Count: document.querySelectorAll("h1").length,
     ctaInView: (() => {
@@ -88,6 +92,13 @@ def main() -> int:
                 f"{data['scrollWidth']} vs {data['clientWidth']}",
             )
             check(f"{name} lex visible", data["lexVisible"])
+            check(
+                f"{name} lex photo",
+                data.get("lexPhotoSrc") == "assets/images/lex/lex-main.webp"
+                and "Лекс" in (data.get("lexPhotoAlt") or "")
+                and data.get("lexPhotoOk") is True,
+                f"{data.get('lexPhotoSrc')} {data.get('lexPhotoAlt')} loaded={data.get('lexPhotoOk')}",
+            )
             check(
                 f"{name} skills",
                 "OpenClaw" in data["skills"] and "Cursor" in data["skills"],

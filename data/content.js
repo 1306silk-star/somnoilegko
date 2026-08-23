@@ -7,7 +7,7 @@
 
 const SITE_CONTENT = {
   "version": 1,
-  "updatedAt": "2026-08-23T17:50:00.000Z",
+  "updatedAt": "2026-08-23T18:50:00.000Z",
   "site": {
     "brand": "Сомной_легко",
     "person": "Ирина Андреева",
@@ -112,6 +112,8 @@ const SITE_CONTENT = {
     "primaryHref": "https://t.me/irinaai13_bot",
     "secondaryLabel": "Обсудить задачу с Ириной",
     "secondaryHref": "#contacts",
+    "photo": "assets/images/lex/lex-main.webp",
+    "photoAlt": "Лекс — персональный ИИ-ассистент Ирины Андреевой",
     "facts": [
       {
         "title": "Для кого",
