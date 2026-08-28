@@ -113,6 +113,18 @@
   text-align: center;
 }
 
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.site-footer__legal .site-footer__link {
+  font-size: var(--text-xs);
+}
+
 .site-footer a:focus-visible {
   outline-color: var(--color-accent);
 }

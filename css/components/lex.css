@@ -2,6 +2,22 @@
  * Блок «Лекс» — главный актуальный кейс
  */
 
+.lex {
+  padding-bottom: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .lex {
+    padding-bottom: 0.625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lex {
+    padding-bottom: clamp(0.5rem, 0.8vw, 0.7rem);
+  }
+}
+
 .lex__panel {
   position: relative;
   display: flex;

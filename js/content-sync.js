@@ -271,6 +271,7 @@
           [
             "project-case",
             `project-case--${item.variant || "work"}`,
+            item.id === "v-knigu" ? "project-case--v-knigu" : (!item.embedUrl ? "project-case--no-preview" : ""),
             index % 2 === 1 ? "project-case--reverse" : "",
             "reveal",
             "reveal--scale",
@@ -278,6 +279,7 @@
             .filter(Boolean)
             .join(" ")
         );
+        article.setAttribute("data-project-number", String(index + 1).padStart(2, "0"));
         article.setAttribute("data-spotlight", "");
         article.setAttribute("data-tilt", "");
 
@@ -315,6 +317,10 @@
           contentCol.appendChild(tags);
         }
 
+        if (item.accent) {
+          contentCol.appendChild(el("p", "project-case__accent", item.accent));
+        }
+
         const actions = el("div", "project-case__actions");
         if (item.url) {
           actions.appendChild(
@@ -328,6 +334,26 @@
         }
         contentCol.appendChild(actions);
         article.appendChild(contentCol);
+
+        if (item.heroImage && item.backgroundImage) {
+          const visual = el("div", "project-case__visual project-showcase");
+          const hero = document.createElement("img");
+          hero.className = "project-showcase__hero";
+          hero.src = item.heroImage;
+          hero.alt = "Главный экран приложения «В книгу!» — подросток перед книгой-порталом";
+          hero.loading = "lazy";
+          visual.appendChild(hero);
+
+          const inside = el("figure", "project-showcase__inside");
+          const background = document.createElement("img");
+          background.src = item.backgroundImage;
+          background.alt = "Утверждённый фон внутренних экранов приложения «В книгу!»";
+          background.loading = "lazy";
+          inside.appendChild(background);
+          inside.appendChild(el("figcaption", "project-showcase__caption", "Внутри приложения"));
+          visual.appendChild(inside);
+          article.appendChild(visual);
+        }
 
         if (item.embedUrl) {
           const visual = el("div", "project-case__visual");

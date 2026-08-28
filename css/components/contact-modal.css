@@ -186,6 +186,30 @@
   color: var(--color-text-muted);
 }
 
+.contact-form__consent-text a {
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.contact-form__consent-text a:hover {
+  color: var(--color-primary-hover);
+}
+
+.contact-form__consent-details {
+  display: inline-flex;
+  width: 100%;
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+}
+
 .contact-form__submit {
   width: 100%;
   margin-top: var(--space-1);

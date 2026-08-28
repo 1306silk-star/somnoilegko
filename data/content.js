@@ -14,7 +14,7 @@ const SITE_CONTENT = {
     "telegram": "https://t.me/somnoi_legko",
     "telegramLabel": "Telegram",
     "telegramHandle": "@somnoi_legko",
-    "github": "https://github.com/1306silk-star",
+    "github": "",
     "lexHref": "https://t.me/irinaai13_bot",
     "email": "1306silk@gmail.com",
     "emailLabel": "Email",
@@ -237,8 +237,8 @@ const SITE_CONTENT = {
         ],
         "primaryLabel": "Открыть помощник",
         "url": "https://1306silk-star.github.io/my_test/",
-        "githubLabel": "Посмотреть код на GitHub",
-        "github": "https://github.com/1306silk-star/my_test",
+        "githubLabel": "",
+        "github": "",
         "embedUrl": "https://1306silk-star.github.io/my_test/",
         "embedLabel": "1306silk-star.github.io/my_test"
       },
@@ -263,10 +263,40 @@ const SITE_CONTENT = {
         ],
         "primaryLabel": "Открыть приложение",
         "url": "https://1306silk-star.github.io/my_budget/",
-        "githubLabel": "Посмотреть код на GitHub",
-        "github": "https://github.com/1306silk-star/my_budget",
         "embedUrl": "https://1306silk-star.github.io/my_budget/",
         "embedLabel": "1306silk-star.github.io/my_budget"
+      },
+      {
+        "id": "v-knigu",
+        "status": "published",
+        "statusLabel": "Android • версия 1.25",
+        "category": "Для жизни",
+        "variant": "life",
+        "title": "В книгу!",
+        "task": "Как отвлечь ребёнка от бесконечного экрана — без уговоров, запретов и очередного «положи телефон»? Предложить ему что-то настолько же интересное.",
+        "solution": "«В книгу!» помогает за несколько секунд подобрать книги по возрасту и увлечениям ребёнка — приключения, тайны, фантастику, юмор, науку и открытия. Не бесконечный каталог, в котором снова нужно выбирать, а несколько увлекательных книг, с которых можно начать прямо сейчас.",
+        "benefits": [
+          "Подбор по возрасту и интересам",
+          "Несколько увлекательных книг вместо длинного списка",
+          "Русский и английский языки",
+          "Простой выбор без регистрации и сложных настроек"
+        ],
+        "tags": [
+          "6–8",
+          "9–11",
+          "12–14",
+          "RU / EN",
+          "Android"
+        ],
+        "accent": "Меньше времени на поиски. Больше шансов услышать: „А давай эту“.",
+        "heroImage": "assets/images/projects/v-knigu-hero.png",
+        "backgroundImage": "assets/images/projects/v-knigu-background.png",
+        "primaryLabel": "Скачать для Android",
+        "url": "https://github.com/1306silk-star/v-knigu/releases/latest/download/V-knigu.apk",
+        "githubLabel": "",
+        "github": "",
+        "embedUrl": "",
+        "embedLabel": ""
       }
     ]
   },
@@ -333,14 +363,6 @@ const SITE_CONTENT = {
         "text": "Личный инструмент учёта финансов в евро с визуализацией цели. Не коммерческий продукт, а реальный пример работы.",
         "linkLabel": "Открыть мини-сервис →",
         "linkHref": "https://1306silk-star.github.io/my_budget/"
-      },
-      {
-        "id": "case-github",
-        "status": "published",
-        "title": "Открытый код на GitHub",
-        "text": "Практические проекты можно посмотреть в коде — без обещаний «крупной студии».",
-        "linkLabel": "Профиль GitHub →",
-        "linkHref": "https://github.com/1306silk-star"
       },
       {
         "id": "case-learning",
@@ -443,7 +465,7 @@ const SITE_CONTENT = {
     "lexHref": "https://t.me/irinaai13_bot",
     "tertiaryLabel": "Посмотреть проекты",
     "tertiaryHref": "#projects",
-    "photo": "assets/images/hero/hero.png",
+    "photo": "assets/images/contacts/irina-cta.jpg",
     "photoAlt": "Ирина Андреева — можно написать ей и обсудить задачу, которая отнимает время",
     "modalTitle": "Написать мне",
     "modalSubtitle": "Оставьте имя и контакты — я напишу и помогу понять, как вернуть время в вашей задаче.",
@@ -458,7 +480,6 @@ const SITE_CONTENT = {
       { "label": "Проекты", "href": "#projects" },
       { "label": "Обо мне", "href": "#about" },
       { "label": "FAQ", "href": "#faq" },
-      { "label": "GitHub", "href": "https://github.com/1306silk-star" },
       { "label": "Контакты", "href": "#contacts" }
     ],
     "bottom": "© 2026 Сомной_легко · Ирина Андреева"
