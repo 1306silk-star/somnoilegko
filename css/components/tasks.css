@@ -417,6 +417,13 @@
   font-size: clamp(1.5rem, 3vw, 2.25rem);
 }
 
+.what-i-do__item:nth-child(2) .what-i-do__name,
+.what-i-do__item:nth-child(3) .what-i-do__name {
+  font-size: clamp(1.5rem, 3vw, 2.25rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+}
+
 .what-i-do__item--wide {
   min-height: 0;
 }
@@ -475,7 +482,7 @@
   z-index: 1;
   margin-top: var(--space-2);
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: clamp(1rem, 2vw, 1.125rem);
   font-weight: var(--weight-regular);
   line-height: var(--leading-relaxed);
   color: var(--color-text-muted);
@@ -484,10 +491,6 @@
 
 .what-i-do__item--dark .what-i-do__text {
   color: rgba(255, 255, 255, 0.82);
-}
-
-.what-i-do__item--featured .what-i-do__text {
-  font-size: var(--text-base);
 }
 
 .skills {

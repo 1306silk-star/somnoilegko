@@ -58,6 +58,13 @@ a:focus-visible {
   position: relative;
 }
 
+.btn:not(.btn--sm) {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.01em;
+}
+
 .btn:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--color-primary);

@@ -76,6 +76,7 @@
 .route-card__text {
   flex: 1;
   font-size: var(--text-base);
+  font-weight: var(--weight-regular);
   line-height: var(--leading-relaxed);
   color: var(--color-text-muted);
 }

@@ -207,6 +207,15 @@
         article.appendChild(el("span", "what-i-do__label", String(index + 1).padStart(2, "0")));
         article.appendChild(el("h3", "what-i-do__name", item.name));
         if (item.text) article.appendChild(el("p", "what-i-do__text", item.text));
+        if (item.question) article.appendChild(el("p", "what-i-do__text", item.question));
+        if (item.ctaLabel) {
+          const action = el("div", "what-i-do__action");
+          const button = el("button", "btn btn--primary", item.ctaLabel);
+          button.type = "button";
+          button.setAttribute("data-contact-modal-open", "");
+          action.appendChild(button);
+          article.appendChild(action);
+        }
         container.appendChild(article);
       });
     },
@@ -271,7 +280,11 @@
           [
             "project-case",
             `project-case--${item.variant || "work"}`,
-            item.id === "v-knigu" ? "project-case--v-knigu" : (!item.embedUrl ? "project-case--no-preview" : ""),
+            item.id === "v-knigu"
+              ? "project-case--v-knigu"
+              : item.id === "wopa"
+                ? "project-case--wopa"
+                : (!item.embedUrl ? "project-case--no-preview" : ""),
             index % 2 === 1 ? "project-case--reverse" : "",
             "reveal",
             "reveal--scale",
@@ -289,6 +302,12 @@
           contentCol.appendChild(el("span", "project-case__status", item.statusLabel));
         }
         contentCol.appendChild(el("h3", "project-case__title", item.title));
+        if (item.subtitle) {
+          contentCol.appendChild(el("p", "project-case__subtitle", item.subtitle));
+        }
+        if (item.description) {
+          contentCol.appendChild(el("p", "project-case__description", item.description));
+        }
 
         const meta = el("div", "project-case__meta");
         [
@@ -352,6 +371,15 @@
           inside.appendChild(background);
           inside.appendChild(el("figcaption", "project-showcase__caption", "Внутри приложения"));
           visual.appendChild(inside);
+          article.appendChild(visual);
+        } else if (item.heroImage) {
+          const visual = el("div", "project-case__visual project-product-visual");
+          const hero = document.createElement("img");
+          hero.className = "project-product-visual__image";
+          hero.src = item.heroImage;
+          hero.alt = item.imageAlt || item.title || "Изображение проекта";
+          hero.loading = "lazy";
+          visual.appendChild(hero);
           article.appendChild(visual);
         }
 
